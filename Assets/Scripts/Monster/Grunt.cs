@@ -12,7 +12,7 @@ public class Grunt : MonsterBase
     void Awake()
     {
         monsterStatus.hp = 50;
-        monsterStatus.moveSpeed = 2;
+        monsterStatus.moveSpeed = 3;
         monsterStatus.damage = 5;
     }
 
