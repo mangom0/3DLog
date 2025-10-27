@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public float levelExp = 0.0f;
     Camera veiwCamera;
     PlayerMove controller;
+
+    [SerializeField] FireBall fireBall;
     void Start()
     {
         playerStatus.hp = 100.0f;
@@ -31,6 +33,7 @@ public class Player : MonoBehaviour
         if(Input.GetMouseButton(0))
         {
             _animator.SetBool("isAttack", true);
+            fireBall.Shoot();
         }
         if(Input.GetMouseButtonUp(0))
         {
