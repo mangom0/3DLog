@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzle: {fileID: 936022736}
-  projectile: {fileID: 6668268626912081845, guid: 19bf23f1e48a8ae4e8b1bc184bc1429e, type: 3}
+  projectile: {fileID: -359558852186610015, guid: 19bf23f1e48a8ae4e8b1bc184bc1429e, type: 3}
   msBetweenShots: 500
   muzzleVelocity: 10
 --- !u!1 &1837369826
