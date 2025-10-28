@@ -30,7 +30,7 @@ public class Shield : MonoBehaviour, ISkill
     float _shieldHp;
     private void Awake()
     {
-        if(player._skillLearned == false)
+        if(player._skillOneLearned == false)
         {
             _shieldEffect.SetActive(false);
         }
