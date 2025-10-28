@@ -344,6 +344,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1500616922}
+    - target: {fileID: 3301916290136996998, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
+      propertyPath: expObject
+      value: 
+      objectReference: {fileID: 8084299637883586223, guid: 91b947e39bfa45e41b9fb28478c0e808, type: 3}
     - target: {fileID: 5928037822912005714, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_Name
       value: GruntHP

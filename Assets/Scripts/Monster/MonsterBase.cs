@@ -6,6 +6,7 @@ using UnityEngine.Animations;
 
 public class MonsterBase : MonoBehaviour
 {
+    [SerializeField] GameObject expObject;
     public GameObject targetPlayer;
     public Transform targetPlayertransform;
     protected Status monsterStatus;
@@ -18,7 +19,7 @@ public class MonsterBase : MonoBehaviour
 
     float time = 0;
     float delayTime =1.35f;
-
+    bool isAlive = true;
 
 
 
@@ -109,6 +110,7 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterDead()
     {
+           
         if (monsterStatus.hp <= 0)
         {
             monsterStatus.hp = 0;
@@ -116,17 +118,22 @@ public class MonsterBase : MonoBehaviour
             monsterAnimator.SetBool("IsDead", true);
 
             monsterStatus.moveSpeed = 0;
-
+           
             Destroy(gameObject, 3);
+            if(isAlive == true)
+            {
+                Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
+                               isAlive = false;
+            }
         }
     }
     private void Update()
     {
         monsterRigidbody.velocity = Vector3.zero;
         monsterRigidbody.angularVelocity = Vector3.zero;
-
-
-
-
+    }
+    private void OnDestroy()
+    {
+        
     }
 }
