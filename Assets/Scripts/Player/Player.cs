@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool _skillOneLearned = false;
     public bool _skillTwoLearned = false;
     public bool _skillThreeLearned = false;
+    public bool _skillFourthLearned = false;
 
     [SerializeField] FireBall fireBall;
     void Start()

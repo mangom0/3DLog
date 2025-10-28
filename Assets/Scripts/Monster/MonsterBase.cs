@@ -104,9 +104,9 @@ public class MonsterBase : MonoBehaviour
 
     }
 
-    protected virtual void MonsterDamageTaken()
+    public virtual void MonsterDamageTaken(float _damage)
     {
-
+        monsterStatus.hp -= _damage;
 
     }
 
