@@ -63,7 +63,7 @@ public class FireRain : MonoBehaviour, ISkill
                     if (curTime > _time)
                     {
                         curTime = 0;
-                        //enemy.gameObject.MonsterDamageTaken();
+                        enemy.MonsterDamageTaken(_value);
                     }
                 }
             }
@@ -72,6 +72,7 @@ public class FireRain : MonoBehaviour, ISkill
 
     private void Update()
     {
+        
         Effect();
         _timeFlow += Time.deltaTime;
     }
@@ -80,6 +81,7 @@ public class FireRain : MonoBehaviour, ISkill
     {
         if (_isActive == false)
         {
+            _fireRainEffect.transform.position = player.transform.position;
             if (curCooldown <= _timeFlow)
             {
                 _isActive = true;

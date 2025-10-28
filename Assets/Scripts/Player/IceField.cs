@@ -63,7 +63,7 @@ public class IceField : MonoBehaviour
                     if (curTime > _time)
                     {
                         curTime = 0;
-                        //enemy.gameObject.MonsterDamageTaken();
+                        enemy.MonsterDamageTaken(_value);
                     }
                 }
             }
@@ -80,6 +80,7 @@ public class IceField : MonoBehaviour
     {
         if (_isActive == false)
         {
+            _iceFieldEffect.gameObject.transform.position = player.transform.position;
             if (curCooldown <= _timeFlow)
             {
                 _isActive = true;
