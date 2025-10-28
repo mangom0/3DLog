@@ -17,6 +17,8 @@ public class Grunt : MonsterBase
         monsterStatus.damage = 5;
         targetPlayer = GameObject.FindWithTag("Player");
         targetPlayertransform = targetPlayer.transform;
+
+
         
 
     }
