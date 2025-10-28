@@ -9,7 +9,9 @@ public class Player : MonoBehaviour
     public float levelExp = 0.0f;
     Camera veiwCamera;
     PlayerMove controller;
-    public bool _skillLearned = false;
+    public bool _skillOneLearned = false;
+    public bool _skillTwoLearned = false;
+    public bool _skillThreeLearned = false;
 
     [SerializeField] FireBall fireBall;
     void Start()
