@@ -339,7 +339,7 @@ PrefabInstance:
     - target: {fileID: 2525871541478412909, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: d2923707601bcb941a4fc0d20c8aafc5, type: 2}
+      objectReference: {fileID: 9100000, guid: bb403759cf3fb05428d02e91714759a0, type: 2}
     - target: {fileID: 3301916290136996998, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: player
       value: 
@@ -894,6 +894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireRain
       objectReference: {fileID: 0}
+    - target: {fileID: 8983569938370699544, guid: b01d3f4f88712ce459bc1a000b7243a7, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 896714674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1141,7 +1145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1705716574
 MonoBehaviour:
   m_ObjectHideFlags: 0
