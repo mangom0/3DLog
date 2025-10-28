@@ -627,7 +627,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -644,8 +644,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a28d85fab6639204082ecbbed59a7871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  expObject: {fileID: 8084299637883586223, guid: 91b947e39bfa45e41b9fb28478c0e808, type: 3}
   targetPlayer: {fileID: 0}
   targetPlayertransform: {fileID: 0}
+  monsterGold: 0
   monsterAnimator: {fileID: 2525871541478412909}
   monsterHitRadius: {fileID: 0}
 --- !u!1 &6139524380143634164

@@ -393,12 +393,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9049224079532129598, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9049224079532129598, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_AngularDrag
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 9049224079532129598, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 116
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

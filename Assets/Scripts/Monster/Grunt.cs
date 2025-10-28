@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System.Xml.Linq;
 using UnityEngine;
 
 public class Grunt : MonsterBase
 {
     
-    
 
+  
 
+   
 
     private void Start()
     {
-       
+        
+        
         monsterStatus.hp = 50;
         monsterStatus.moveSpeed = 3;
         monsterStatus.damage = 5;
@@ -29,6 +32,8 @@ public class Grunt : MonsterBase
     {
         MonsterMoving();
         MonsterDead();
+
+        
 
     }
    

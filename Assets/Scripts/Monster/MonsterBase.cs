@@ -10,8 +10,7 @@ public class MonsterBase : MonoBehaviour
     public GameObject targetPlayer;
     public Transform targetPlayertransform;
     protected Status monsterStatus;
-    
-    protected float Monstergold;
+    public int monsterGold = 0;    
     public Animator monsterAnimator;
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
@@ -26,6 +25,9 @@ public class MonsterBase : MonoBehaviour
     private void Awake()
     {
         player = FindObjectOfType<Player>();
+        monsterHitRadius = GetComponent<Collider>();
+        monsterGold = Random.Range(1, 10);
+
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -78,7 +80,7 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterMoving()
     {
-        if (targetPlayer.transform.position != null)
+        if (targetPlayer.transform.position != null && isAlive==true)
         {
             if (targetPlayer.CompareTag("Player"))
             {
@@ -113,18 +115,22 @@ public class MonsterBase : MonoBehaviour
            
         if (monsterStatus.hp <= 0)
         {
+            if(isAlive == true)
+            {
+                Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
+                Debug.Log("È¹µæ °ñµå : " + monsterGold);
+                isAlive = false;
+            }
             monsterStatus.hp = 0;
             monsterAnimator.SetBool("Run", false);
             monsterAnimator.SetBool("IsDead", true);
 
             monsterStatus.moveSpeed = 0;
-           
+
+            monsterHitRadius.enabled = false;
+            
+
             Destroy(gameObject, 3);
-            if(isAlive == true)
-            {
-                Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
-                               isAlive = false;
-            }
         }
     }
     private void Update()
@@ -132,8 +138,5 @@ public class MonsterBase : MonoBehaviour
         monsterRigidbody.velocity = Vector3.zero;
         monsterRigidbody.angularVelocity = Vector3.zero;
     }
-    private void OnDestroy()
-    {
-        
-    }
+   
 }
