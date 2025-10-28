@@ -9,69 +9,37 @@ public class MonsterBase : MonoBehaviour
     public GameObject targetPlayer;
     public Transform targetPlayertransform;
     protected Status monsterStatus;
-    
     protected float Monstergold;
     public Animator monsterAnimator;
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
-    Player player;
-
-    float time = 0;
-    float delayTime =1.35f;
-
-
-
-
-    private void Awake()
-    {
-        player = FindObjectOfType<Player>();
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Skill")
-        {
-            monsterStatus.hp -= 70;
-            Debug.Log("충돌 감지, 현재 체력" + monsterStatus.hp);
-        }
-    }
-
     
 
-    private void OnCollisionExit(Collision collision)
+    private void Start()
     {
-        monsterAnimator.SetBool("Attack", false);
-
+       
+            targetPlayer = GameObject.FindWithTag("Player");
+            targetPlayertransform = targetPlayer.transform;
+        
     }
+
     private void OnCollisionEnter(Collision collision)
     {
 
         if (collision.gameObject.tag == "Player")
         {
             monsterAnimator.SetBool("Attack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
-            Debug.Log("Player 체력 : " + player.playerStatus.hp);
         }
 
     }
-    private void OnCollisionStay(Collision collision)
-    {
 
-        if (collision.gameObject.tag == "Player")
-        {
-            time += Time.deltaTime;
-            if (time > delayTime)
-            {
-                time = 0;
-                monsterAnimator.SetBool("Attack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
-            }
-        }
+    private void OnCollisionExit(Collision collision)
+    {
+        monsterAnimator.SetBool("Attack", false);
+
     }
     protected virtual void MonsterAttack()
     {
-
-        
 
     }
 
@@ -101,24 +69,22 @@ public class MonsterBase : MonoBehaviour
 
     }
 
+
+
+    protected virtual void MonsterRigidbody()
+    {
+
+    }
+
     protected virtual void MonsterDamageTaken()
     {
 
 
     }
 
-    protected void MonsterDead()
+    protected virtual void MonsterDead()
     {
-        if (monsterStatus.hp <= 0)
-        {
-            monsterStatus.hp = 0;
-            monsterAnimator.SetBool("Run", false);
-            monsterAnimator.SetBool("IsDead", true);
 
-            monsterStatus.moveSpeed = 0;
-
-            Destroy(gameObject, 3);
-        }
     }
     private void Update()
     {
