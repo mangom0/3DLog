@@ -133,10 +133,6 @@ public class MonsterBase : MonoBehaviour
             Destroy(gameObject, 3);
         }
     }
-    private void Update()
-    {
-        monsterRigidbody.velocity = Vector3.zero;
-        monsterRigidbody.angularVelocity = Vector3.zero;
-    }
+    
    
 }
