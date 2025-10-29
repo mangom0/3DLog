@@ -50,7 +50,6 @@ public class ShopManager : MonoBehaviour
     public int magnetCostBase = 200;
 
     // 임시 변수들 (플레이어로 스탯 옮겨야 함)
-    private float Gold = 10000f; // 테스트용 골드
     private float expAdd = 1f; // 경험치 배율
     private float regenHp = 0f; // 체력 재생 (초당)
     private float regenTimer = 0f; // 재생 타이머
@@ -96,7 +95,7 @@ public class ShopManager : MonoBehaviour
         }
 
         // 임시 체젠, 체력 재생 (player.cs에서 구현해야 할 듯) 
-        if (regenHp > 0 && Time.timeScale > 0)
+        if (regenHp > 0 && Time.timeScale > 0f && player != null)
         {
             regenTimer += Time.deltaTime;
             if (regenTimer >= 1f) // 1초마다
@@ -144,7 +143,7 @@ public class ShopManager : MonoBehaviour
         if (player == null) return;
 
         // 골드 표시
-        goldText.text = "Gold : " + (int)Gold;
+        goldText.text = "Gold : " + player.gold;
 
         // 현재 스탯 표시
         damageStatText.text = "현재 공격력 : " + (int)player.damage;
@@ -168,12 +167,15 @@ public class ShopManager : MonoBehaviour
     {
         int cost = GetDamageCost();
 
-        if (Gold >= cost)
+        if (player.SpendGold(cost)) // 변경됨: Gold 체크 대신 player.SpendGold()
         {
-            Gold -= cost;
-            player.damage += 5;
+            player.damage += 5f;
             damageLevel++;
             UpdateAllUI();
+        }
+        else
+        {
+            Debug.Log("골드 부족 (공격력 업그레이드 실패)");
         }
     }
 
@@ -181,26 +183,40 @@ public class ShopManager : MonoBehaviour
     {
         int cost = GetSpeedCost();
 
-        if (Gold >= cost)
+        if (player.SpendGold(cost))
         {
-            Gold -= cost;
             player.moveSpeed += 1f;
             speedLevel++;
             UpdateAllUI();
+        }
+        else
+        {
+            Debug.Log("골드 부족 (이동속도 업그레이드 실패)");
         }
     }
 
     void BuyHealth()
     {
         int cost = GetHealthCost();
-
-        if (Gold >= cost)
+        if (player.SpendGold(cost))
         {
-            Gold -= cost;
-            player.maxHp += 10;
-            player.currentHp += 10; // 현재 체력도 증가
+            // 최대 체력 늘리고 현재 체력도 같이 올려줌
+            player.maxHp += 10f;
+            player.currentHp += 10f;
+            if (player.currentHp > player.maxHp)
+            {
+                player.currentHp = player.maxHp;
+            }
+
+            // 체력바 즉시 갱신 (Player 쪽에 HealthBarUI.UpdateBar() 같은 함수 있으면 호출해줘도 됨)
+            // 예: player.UpdateHpUI(); 라는 함수가 있으면 여기서 불러.
+
             healthLevel++;
             UpdateAllUI();
+        }
+        else
+        {
+            Debug.Log("골드 부족 (체력 업그레이드 실패)");
         }
 
     }
@@ -209,12 +225,15 @@ public class ShopManager : MonoBehaviour
     {
         int cost = GetRegenCost();
 
-        if (Gold >= cost)
+        if (player.SpendGold(cost))
         {
-            Gold -= cost;
-            regenHp += 1f; // 초당 1 체력 회복
+            regenHp += 1f; // 초당 체력 재생량 +1
             regenLevel++;
             UpdateAllUI();
+        }
+        else
+        {
+            Debug.Log("골드 부족 (체력 재생 업그레이드 실패)");
         }
     }
 
@@ -222,25 +241,35 @@ public class ShopManager : MonoBehaviour
     {
         int cost = GetExpCost();
 
-        if (Gold >= cost)
+        if (player.SpendGold(cost))
         {
-            Gold -= cost;
-            expAdd += 0.05f; // 5% 증가
+            expAdd += 0.05f; // 경험치 획득량 5% 증가
             expLevel++;
             UpdateAllUI();
+
+            // 나중에 player.GainExp() 내부에서 expAdd를 곱해서
+            // 경험치 아이템을 더 많이 주는 식으로 연결할 수 있음
+            // (예: player.AddExpMultiplier(expAdd); 이런 식으로)
         }
-     }
+        else
+        {
+            Debug.Log("골드 부족 (EXP 업그레이드 실패)");
+        }
+    }
 
     void BuyMagnet()
     {
         int cost = GetMagnetCost();
 
-        if (Gold >= cost)
+        if (player.SpendGold(cost))
         {
-            Gold -= cost;
             player.magnetRange += 1f;
             magnetLevel++;
             UpdateAllUI();
+        }
+        else
+        {
+            Debug.Log("골드 부족 (마그넷 업그레이드 실패)");
         }
     }
 
