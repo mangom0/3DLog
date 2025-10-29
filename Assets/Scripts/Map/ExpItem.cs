@@ -61,18 +61,17 @@ public class ExpItem : MonoBehaviour
 
   
     private void OnTriggerEnter(Collider other)
-    {      
+    {
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
 
             if (player != null)
             {
-                // 경험치 증가
-                player.currentExp += expAdd;
+                // 경험치 증가 (이제는 그냥 currentExp += ... 말고 GainExp 호출)
+                player.GainExp(expAdd);
                 Debug.Log("Exp 획득! 현재 Exp: " + player.currentExp);
 
-                // 아이템 제거
                 Destroy(gameObject);
             }
         }

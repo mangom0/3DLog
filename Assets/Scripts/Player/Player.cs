@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private HealthBarUI healthBarUI;
+    [SerializeField] private ExpBarUI expBarUI;
 
     [Header("Health")]
     public float maxHp = 100f;
@@ -46,6 +47,10 @@ public class Player : MonoBehaviour
         if (healthBarUI != null)
         {
             healthBarUI.UpdateBar();
+        }
+        if (expBarUI != null)
+        {
+            expBarUI.UpdateBar(); // 경험치바 / 레벨 텍스트 처음 상태 반영
         }
     }
 
@@ -140,20 +145,32 @@ public class Player : MonoBehaviour
             LevelUp();
         }
 
-        // TODO: 경험치바 UI 갱신
+        if (expBarUI != null)
+        {
+            expBarUI.UpdateBar();
+        }
     }
 
     void LevelUp()
     {
         level++;
 
-        // 레벨업 할 때 원하는 보상들
+        // 레벨업 보상
         maxHp += 10f;
         currentHp = maxHp;
 
         expToNextLevel *= 1.2f;
 
-        // TODO: 레벨 텍스트, 효과, 사운드 등
+        // UI 갱신
+        if (healthBarUI != null)
+        {
+            healthBarUI.UpdateBar();
+        }
+        if (expBarUI != null)
+        {
+            expBarUI.UpdateBar(); // 새 레벨 기준 expToNextLevel / levelText 반영
+        }
+
     }
 
     void Die()

@@ -21,7 +21,7 @@ public class MonsterSpawner : MonoBehaviour
 
     private IEnumerator Spawner()
     {
-        for(int a = 0; a < 10; a++)
+        for(int a = 0; a < 50; a++)
         {
 
           yield return delay;
