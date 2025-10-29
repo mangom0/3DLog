@@ -5,60 +5,70 @@ using UnityEngine;
 public class Lich : MonsterBase
 {
     float time = 0;
-    float delayTime = 1.35f;
+    float magicTime = 0;
+    float delayTime = 1.3f;
+    float MagicDelayTime = 2.5f;
 
     [SerializeField] private float detectedRange = 10;
 
+    [SerializeField] LayerMask layerDetect;
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        isAttacking = true;
-    //        monsterAnimator.SetBool("IsAttack", true);
-    //        player.playerStatus.hp -= monsterStatus.damage;
-    //        Debug.Log("Player 체력 : " + player.playerStatus.hp);
-    //        monsterStatus.moveSpeed = 0;
-    //    }
-
-    //}
-    //private void OnCollisionStay(Collision collision)
-    //{
-
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        isAttacking = true;
-    //        time += Time.deltaTime;
-    //        if (time > delayTime)
-    //        {
-    //            time = 0;
-    //            monsterAnimator.SetBool("IsAttack", true);
-    //            player.playerStatus.hp -= monsterStatus.damage;
-    //            Debug.Log("Player 체력 : " + player.playerStatus.hp);
-    //            monsterStatus.moveSpeed = 0;
-    //        }
-    //    }
-    //}
+    Ray lichRay;
+    RaycastHit[] rayHits;
 
 
-    //private void OnCollisionExit(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        monsterAnimator.SetBool("IsAttack", false);
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            isAttacking = true;
+            monsterAnimator.SetBool("IsAttack", true);
+            player.playerStatus.hp -= monsterStatus.damage;
+            Debug.Log("Player 체력 : " + player.playerStatus.hp);
+            monsterStatus.moveSpeed = 0;
+        }
+
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
+        {
+            isAttacking = true;
+            time += Time.deltaTime;
+            if (time > delayTime)
+            {
+                time = 0;
+                monsterAnimator.SetBool("IsAttack", true);
+                player.playerStatus.hp -= monsterStatus.damage;
+                Debug.Log("Player 체력 : " + player.playerStatus.hp);
+                monsterStatus.moveSpeed = 0;
+            }
+        }
+    }
 
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            monsterAnimator.SetBool("IsAttack", false);
+        }
+    }
+
+    private void Awake()
+    {
+
+    }
 
     private void Start()
     {
 
-
-        monsterStatus.hp = 50;
+        
+        monsterStatus.hp = 100;
         monsterStatus.moveSpeed = 3;
-        monsterStatus.damage = 5;
+        monsterStatus.damage = 20;
         targetPlayer = GameObject.FindWithTag("Player");
         targetPlayertransform = targetPlayer.transform;
 
@@ -66,31 +76,67 @@ public class Lich : MonsterBase
 
 
     }
-    public void GruntMoveSpeedUp()
+    public void LichMoveSpeedUp()
     {
         transform.LookAt(targetPlayer.transform.position);
         monsterStatus.moveSpeed = 3;
         isAttacking = false;
 
+    }
+    private void RayShot()
+    {
+
+
+        lichRay = new Ray(transform.position, transform.forward * detectedRange);
+        rayHits = Physics.RaycastAll(lichRay, detectedRange, layerDetect);
+        if (rayHits != null)
+        {
+            foreach (var hit in rayHits)
+            {
+                if (hit.collider.gameObject.name == "Player")
+                {
+                   
+                    magicTime += Time.deltaTime;
+                    monsterAnimator.SetBool("IsMagic", true);
+                    monsterStatus.moveSpeed = 0;
+                    Debug.Log("플레이어 인식");
+                    if (magicTime > MagicDelayTime)
+                    {
+                        magicTime = 0;
+                        monsterAnimator.SetBool("IsMagic", false);
+
+                    }
+
+                }
+                else
+                {
+                    monsterAnimator.SetBool("IsMagic", false);
+
+                }
+
+            }
+
+        }
 
     }
 
-    void LichRayDetected()
-    {
-        Ray lichRay = new Ray(transform.position, transform.forward * detectedRange);
-        RaycastHit lichHit;
 
-        if(Physics.Raycast(lichRay, out lichHit, detectedRange))
+    private void OnDrawGizmos()
+    {
+        if (Input.GetKey(KeyCode.Space))
         {
-            Debug.Log($"{name} : {lichHit.transform.name}");
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(lichRay.origin, lichRay.direction * detectedRange);
+
         }
     }
 
     void Update()
     {
-        //MonsterMoving();
-        //MonsterDead();
-        LichRayDetected();
-
+        RayShot();
+        MonsterMoving();
+        MonsterDead();
     }
+
 }

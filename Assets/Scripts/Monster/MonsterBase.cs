@@ -49,16 +49,13 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterMoving()
     {
-        if (targetPlayer.transform.position != null && isAlive == true )
+        if (targetPlayer.transform.position != null && isAlive == true)
         {
-                transform.LookAt(targetPlayer.transform.position);
+            transform.LookAt(targetPlayer.transform.position);
             if (targetPlayer.CompareTag("Player"))
             {
-                if(isAttacking == false)
-                 monsterAnimator.SetBool("IsRun", true);
-
-                
-
+                if (isAttacking == false)
+                    monsterAnimator.SetBool("IsRun", true);
 
             }
 
