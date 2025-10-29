@@ -603,6 +603,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: shield
+      value: 
+      objectReference: {fileID: 1440567718}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
       propertyPath: healthBarUI
       value: 
       objectReference: {fileID: 1896917085}
@@ -1615,6 +1619,17 @@ MonoBehaviour:
   _moverPrefab: {fileID: 97188965}
   _wayPoint: {fileID: 297695291}
   _spawnDelay: 2
+--- !u!114 &1440567718 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2508220821645422809, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
+  m_PrefabInstance: {fileID: 1321106809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440567710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0713e165e187b5d43831f8db2f2a4cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1497638616
 PrefabInstance:
   m_ObjectHideFlags: 0
