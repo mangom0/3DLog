@@ -13,8 +13,8 @@ public class Shield : MonoBehaviour, ISkill
     [SerializeField] float _duration = 5f;
     //쿨타임
     [SerializeField] float _cooldown = 5f;
-    //시각적으로 보이는 해당 스킬 이펙트
-    [SerializeField] GameObject _shieldEffect;
+    //습득 시 실드로서 기능할 오브젝트
+    [SerializeField] public ShieldActivation _shieldEffect;
     [SerializeField] Player player;
 
     //내부적으로 사용할, 현재 시점의 쿨타임 및 지속시간
@@ -26,53 +26,65 @@ public class Shield : MonoBehaviour, ISkill
     float _rank = 1;
     //실드 마법이 발동되었는지 체크해줄 bool형 변수
     bool _isActive = false;
-    //실드 마법이 발동되었을 경우 해당 실드가 막아줄 수 있는 최대 피해량
-    float _shieldHp;
     private void Awake()
     {
-        if(player._skillOneLearned == false)
-        {
-            _shieldEffect.SetActive(false);
-        }
-        else
-        {
-            _shieldEffect.SetActive(true);
-        }
-
         curDuration = _duration;
         curCooldown = _cooldown;
-        _shieldHp = _value;
     }
 
     private void Update()
     {
         Effect();
         _timeFlow += Time.deltaTime;
+        RankUpCheck();
     }
 
     public void Effect()
     {
         if (_isActive == false)
         {
+            player.isShieldActive = false;
             if (curCooldown <= _timeFlow)
             {
                 _isActive = true;
-                _shieldHp = _value;
-                _shieldEffect.SetActive(true);
+                _shieldEffect._shieldHp = _value;
+                _shieldEffect.gameObject.SetActive(true);
+                Debug.Log("현재 잔여 보호막 수치 : " + _shieldEffect._shieldHp);
                 _timeFlow = 0;
             }
         }
         else if (_isActive == true)
         {
-            if (_shieldHp <= 0 || curDuration <= _timeFlow)
+            _shieldEffect.transform.position = player.transform.position;
+            player.isShieldActive = true;
+            if (_shieldEffect._shieldHp <= 0 || curDuration <= _timeFlow)
             {
+                if(_shieldEffect._shieldHp > 0)
+                    _shieldEffect.ShieldTakeDamage(_shieldEffect._shieldHp + 1);
                 _isActive = false;
-                _shieldEffect.SetActive(false);
+                _shieldEffect.gameObject.SetActive(false);
                 _timeFlow = 0;
 
             }
         }
 
+    }
+    public void RankUpCheck()
+    {
+        if(Input.GetKeyDown(KeyCode.Slash))
+        {
+            _rank++;
+            _isActive = false;
+            _timeFlow = 0;
+            if(_rank == 2)
+            {
+                _value += 5;
+            }
+            else if (_rank == 3)
+            {
+                _value += 8;
+            }
+        }
     }
 
 }

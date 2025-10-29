@@ -14,6 +14,11 @@ public class IceField : MonoBehaviour
     [SerializeField] float _cooldown = 10f;
     //시각적으로 보이는 해당 스킬 이펙트
     [SerializeField] GameObject _iceFieldEffect;
+    //_iceFieldEffect에 들어가게 될 랭크 별 이펙트
+    [SerializeField] GameObject _rankOneEffect;
+    [SerializeField] GameObject _rankTwoEffect;
+    [SerializeField] GameObject _rankThreeEffect;
+    
     //떨어지도록 구현할 대상이 되어줄 플레이어
     [SerializeField] Player player;
 
@@ -35,7 +40,10 @@ public class IceField : MonoBehaviour
 
     private void Awake()
     {
-
+        if(_rank == 1)
+        {
+            _iceFieldEffect = _rankOneEffect;
+        }
         if (player._skillThreeLearned == false)
         {
             _iceFieldEffect.SetActive(false);
@@ -44,7 +52,6 @@ public class IceField : MonoBehaviour
         {
             _iceFieldEffect.SetActive(true);
         }
-
         curDuration = _duration;
         curCooldown = _cooldown;
         _damage = _value;
@@ -52,7 +59,7 @@ public class IceField : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == 7)
         {
             MonsterBase enemy = other.gameObject.GetComponent<MonsterBase>();
             if (enemy != null)
@@ -74,6 +81,7 @@ public class IceField : MonoBehaviour
     {
         Effect();
         _timeFlow += Time.deltaTime;
+        RankUpCheck();
     }
 
     public void Effect()
@@ -101,5 +109,22 @@ public class IceField : MonoBehaviour
             }
         }
 
+    }
+    public void RankUpCheck()
+    {
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            _rank++;
+            _isActive = false;
+            _iceFieldEffect.SetActive(false);
+        }
+        if(_rank == 2)
+        {
+            _iceFieldEffect = _rankTwoEffect;
+        }
+        else if( _rank == 3)
+        {
+            _iceFieldEffect = _rankThreeEffect;
+        }
     }
 }

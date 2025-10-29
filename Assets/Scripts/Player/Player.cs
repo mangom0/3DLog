@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] Animator _animator;
     [SerializeField] FireBall fireBall;
+    [SerializeField] Shield shield;
     PlayerMove controller;
 
     Camera veiwCamera;
@@ -30,17 +31,18 @@ public class Player : MonoBehaviour
     [Header("Etc")]
     public float magnetRange = 3f;
 
-    //½ºÅ³ ÇØ±Ý ¿©ºÎ
+    //ï¿½ï¿½Å³ ï¿½Ø±ï¿½ ï¿½ï¿½ï¿½ï¿½
     public bool _skillOneLearned = false;
     public bool _skillTwoLearned = false;
     public bool _skillThreeLearned = false;
     public bool _skillFourthLearned = false;
+    public bool isShieldActive = false;
 
     void Start()
     {
         currentHp = maxHp;
 
-        //Ä«¸Þ¶ó /ÄÁÆ®·Ñ·¯ ¼¼ÆÃ
+        //Ä«ï¿½Þ¶ï¿½ /ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ ï¿½ï¿½ï¿½ï¿½
         controller = GetComponent<PlayerMove>();
         veiwCamera = Camera.main;
 
@@ -50,7 +52,7 @@ public class Player : MonoBehaviour
         }
         if (expBarUI != null)
         {
-            expBarUI.UpdateBar(); // °æÇèÄ¡¹Ù / ·¹º§ ÅØ½ºÆ® Ã³À½ »óÅÂ ¹Ý¿µ
+            expBarUI.UpdateBar(); // ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ / ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¿ï¿½
         }
     }
 
@@ -77,7 +79,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //ÀÔ·ÂÃ³¸®
+    //ï¿½Ô·ï¿½Ã³ï¿½ï¿½
     void MoveInput()
     {
         //Movement input
@@ -100,10 +102,17 @@ public class Player : MonoBehaviour
             controller.LookAt(point);
         }
     }
-    // µ¥¹ÌÁö ¹Þ±â
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½
     public void TakeDamage(float amount)
     {
-        currentHp -= amount;
+        if(isShieldActive == true)
+        {
+            shield._shieldEffect.ShieldTakeDamage(amount);
+        }
+        else
+        {
+            currentHp -= amount;
+        }
         if (currentHp < 0f)
         {
             currentHp = 0f;
@@ -120,7 +129,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // È¸º¹
+    // È¸ï¿½ï¿½
     public void Heal(float amount)
     {
         currentHp += amount;
@@ -134,7 +143,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    // °æÇèÄ¡ È¹µæ
+    // ï¿½ï¿½ï¿½ï¿½Ä¡ È¹ï¿½ï¿½
     public void GainExp(float amount)
     {
         currentExp += amount;
@@ -155,20 +164,20 @@ public class Player : MonoBehaviour
     {
         level++;
 
-        // ·¹º§¾÷ º¸»ó
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         maxHp += 10f;
         currentHp = maxHp;
 
         expToNextLevel *= 1.2f;
 
-        // UI °»½Å
+        // UI ï¿½ï¿½ï¿½ï¿½
         if (healthBarUI != null)
         {
             healthBarUI.UpdateBar();
         }
         if (expBarUI != null)
         {
-            expBarUI.UpdateBar(); // »õ ·¹º§ ±âÁØ expToNextLevel / levelText ¹Ý¿µ
+            expBarUI.UpdateBar(); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ expToNextLevel / levelText ï¿½Ý¿ï¿½
         }
 
     }
@@ -176,7 +185,7 @@ public class Player : MonoBehaviour
     void Die()
     {
         Debug.Log("Player Dead");
-        // TODO: °ÔÀÓ¿À¹ö Ã³¸®, ¸®½ºÆù µî
+        // TODO: ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     }
 
 }
