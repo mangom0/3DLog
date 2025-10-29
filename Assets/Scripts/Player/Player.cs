@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
     public Status playerStatus;
     public float levelExp = 0.0f;
     public float MagnetRange = 3f;
+    public bool isShieldActive = false;
+    public float ShieldHP = 0;
     Camera veiwCamera;
     PlayerMove controller;
     public bool _skillOneLearned = false;

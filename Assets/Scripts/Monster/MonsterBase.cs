@@ -66,8 +66,16 @@ public class MonsterBase : MonoBehaviour
             {
                 time = 0;
                 monsterAnimator.SetBool("Attack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
+                if(player.isShieldActive == false)
+                {
+                    player.playerStatus.hp -= monsterStatus.damage;
+                    Debug.Log("Player 체력 : " + player.playerStatus.hp);
+                }
+                else if(player.isShieldActive == true)
+                {
+                    player.ShieldHP -= monsterStatus.damage;
+                    Debug.Log("실드의 잔류 피해 감소량 : "+player.ShieldHP);
+                }
             }
         }
     }
@@ -107,7 +115,7 @@ public class MonsterBase : MonoBehaviour
     public virtual void MonsterDamageTaken(float _damage)
     {
         monsterStatus.hp -= _damage;
-
+        Debug.Log("현재 체력" + monsterStatus.hp);
     }
 
     protected void MonsterDead()

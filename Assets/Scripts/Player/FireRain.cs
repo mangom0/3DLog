@@ -29,10 +29,11 @@ public class FireRain : MonoBehaviour, ISkill
     //내부에 들어온 적에게 일정 주기마다 입힐 데미지
     float _damage = 0;
     //적에게 입힐 데미지의 주기
-    float _time = 0.5f;
+    float _time = 0.3f;
     //주기를 확인하기 위한 임시 시간변수
     float curTime = 0;
-
+    //랭크 상승에 따른 생성 횟수.
+    float _spawnTime;
     private void Awake()
     {
 
@@ -48,25 +49,17 @@ public class FireRain : MonoBehaviour, ISkill
         curDuration = _duration;
         curCooldown = _cooldown;
         _damage = _value;
+        _spawnTime = _rank;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (other.gameObject.layer == 7)
         {
             MonsterBase enemy = other.gameObject.GetComponent<MonsterBase>();
-            if (enemy != null)
-            {
-                if(_isActive == true)
-                {
-                    curTime += Time.deltaTime;
-                    if (curTime > _time)
-                    {
-                        curTime = 0;
-                        enemy.MonsterDamageTaken(_value);
-                    }
-                }
-            }
+
+            enemy.MonsterDamageTaken(_value);
+
         }
     }
 
@@ -75,6 +68,7 @@ public class FireRain : MonoBehaviour, ISkill
         
         Effect();
         _timeFlow += Time.deltaTime;
+        RankUpCheck();
     }
 
     public void Effect()
@@ -95,12 +89,40 @@ public class FireRain : MonoBehaviour, ISkill
             
             if (curDuration <= _timeFlow)
             {
-                _isActive = false;
-                _fireRainEffect.SetActive(false);
-                _timeFlow = 0;
+                if (_spawnTime > 0)
+                {
+                    _spawnTime--;
+                    _fireRainEffect.transform.position = player.transform.position;
+                    _timeFlow = 0;
+                }
+                else
+                {
+                    _isActive = false;
+                    _fireRainEffect.SetActive(false);
+                    _timeFlow = 0;
+                    _spawnTime = _rank;
+                }
 
             }
         }
 
+
+    }
+    public void RankUpCheck()
+    {
+        if (Input.GetKeyUp(KeyCode.Backspace))
+        {
+            _rank++;
+            _isActive = false;
+            _fireRainEffect.SetActive(false);
+        }
+        if (_rank == 2)
+        {
+            _cooldown -= _duration;
+        }
+        else if (_rank == 3)
+        {
+            _cooldown -= _duration;
+        }
     }
 }
