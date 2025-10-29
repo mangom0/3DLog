@@ -38,6 +38,7 @@ public class ExpItem : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
 
         // 자동 흡수 
+
         if (distance <= playerScript.magnetRange) // 플레이어.cs의 magneticRange 사용
         {
             transform.position = Vector3.MoveTowards(
