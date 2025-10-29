@@ -560,6 +560,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: healthBarUI
+      value: 
+      objectReference: {fileID: 1896917085}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
       propertyPath: _skillOneLearned
       value: 0
       objectReference: {fileID: 0}
@@ -1132,8 +1136,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5.4122, y: 0}
+  m_SizeDelta: {x: -10.8243, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1092506860
 MonoBehaviour:
@@ -2443,8 +2447,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1896917083}
   - component: {fileID: 1896917084}
+  - component: {fileID: 1896917085}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,6 +2527,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1896917085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896917082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390a158526a3f33458af78afbcd8a05d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpSlider: {fileID: 1896917084}
+  player: {fileID: 896714676}
 --- !u!1 &2029189422
 GameObject:
   m_ObjectHideFlags: 0
