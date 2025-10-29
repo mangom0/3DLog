@@ -14,19 +14,19 @@ public class HealingItem : MonoBehaviour
 
             if (player != null)
             {
-                if (player.playerStatus.hp <= 0) // 플레이어 체력이 0 되서 죽으면 작동 안 됨
+                if (player.currentHp <= 0) // 플레이어 체력이 0 되서 죽으면 작동 안 됨
                 {
                     return; 
                 }
               
-                player.playerStatus.hp += healAdd;
+                player.currentHp += healAdd;
 
-                if (player.playerStatus.hp > 100f) // 100f 대체 playerStatus.maxhp
+                if (player.currentHp > 100f) // 100f 대체 playerStatus.maxhp
                 {
-                    player.playerStatus.hp = 100f;  
+                    player.currentHp = 100f;  
                 }
 
-                Debug.Log("HP 회복! 체력 : " + player.playerStatus.hp);
+                Debug.Log("HP 회복! 체력 : " + player.currentHp);
 
                 Destroy(gameObject);
             }

@@ -6,26 +6,39 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    // 싱글톤 인스턴스 - 다른 스크립트에서 TimeManager.Instance로 접근 가능
     public static TimeManager Instance;
 
-    public float timeElapsed = 0f;  // 경과 시간
-    public bool isRunning = false;   // 타이머 작동 여부
+    // 경과 시간
+    public float timeElapsed = 0f;
 
-    public event Action<float> onTimeChanged; // UI 갱신용 이벤트
+    // 타이머 작동 여부
+    public bool isRunning = false;
+
+    // UI 갱신용 이벤트
+    // floot 은 현재 경과 시간(timeElapsed)
+    public event Action<float> onTimeChanged; 
 
     private void Awake()
     {
+        //싱글톤 패턴 구현
+        // 인스턴스가 없으면 현재 오브젝트를 Instance로 지정
         if (Instance == null)
             Instance = this;
         else
+            // 이미 존재하는 경우, 중복 생성 막기위 파괴
             Destroy(gameObject);
     }
 
     private void Update()
     {
+        // 타이머가 작동 중일 때만 시간 증가 처리
         if (isRunning)
         {
+            // 경과 시간 누적
             timeElapsed += Time.deltaTime;
+
+            // 이벤트를 호출하여 타이머 갱신
             onTimeChanged?.Invoke(timeElapsed);
         }
     }
@@ -40,6 +53,8 @@ public class TimeManager : MonoBehaviour
     public void resetTimer()
     {
         timeElapsed = 0f;
-        onTimeChanged?.Invoke(timeElapsed);
+
+        // UI에서 즉시 갱신되도록 이벤트 호출
+        onTimeChanged?.Invoke(timeElapsed); 
     }
 }

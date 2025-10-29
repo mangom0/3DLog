@@ -38,7 +38,8 @@ public class ExpItem : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
 
         // 자동 흡수 
-        if (distance <= playerScript.MagnetRange) // 플레이어.cs의 MagneticRange 사용
+
+        if (distance <= playerScript.magnetRange) // 플레이어.cs의 magneticRange 사용
         {
             transform.position = Vector3.MoveTowards(
                 transform.position,
@@ -60,18 +61,17 @@ public class ExpItem : MonoBehaviour
 
   
     private void OnTriggerEnter(Collider other)
-    {      
+    {
         if (other.CompareTag("Player"))
         {
             Player player = other.GetComponent<Player>();
 
             if (player != null)
             {
-                // 경험치 증가
-                player.levelExp += expAdd;
-                Debug.Log("Exp 획득! 현재 Exp: " + player.levelExp);
+                // 경험치 증가 (이제는 그냥 currentExp += ... 말고 GainExp 호출)
+                player.GainExp(expAdd);
+                Debug.Log("Exp 획득! 현재 Exp: " + player.currentExp);
 
-                // 아이템 제거
                 Destroy(gameObject);
             }
         }
