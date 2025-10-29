@@ -19,7 +19,7 @@ public class Grunt : MonsterBase
             monsterAnimator.SetBool("IsAttack", true);
             player.playerStatus.hp -= monsterStatus.damage;
             Debug.Log("Player 체력 : " + player.playerStatus.hp);
-            //monsterStatus.moveSpeed = 0;
+            monsterStatus.moveSpeed = 0;
         }
 
     }
@@ -36,10 +36,12 @@ public class Grunt : MonsterBase
                 monsterAnimator.SetBool("IsAttack", true);
                 player.playerStatus.hp -= monsterStatus.damage;
                 Debug.Log("Player 체력 : " + player.playerStatus.hp);
-                //monsterStatus.moveSpeed = 0;
+                monsterStatus.moveSpeed = 0;
             }
         }
     }
+
+    
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -64,19 +66,20 @@ public class Grunt : MonsterBase
         
 
     }
-    public void gruntMoveSpeedUp()
+    public void GruntMoveSpeedUp()
     {
+        transform.LookAt(targetPlayer.transform.position);
         monsterStatus.moveSpeed = 3;
         isAttacking = false;
+
+       
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         MonsterMoving();
         MonsterDead();
-
-        
 
     }
    

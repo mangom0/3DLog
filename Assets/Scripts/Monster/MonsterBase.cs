@@ -15,7 +15,7 @@ public class MonsterBase : MonoBehaviour
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
     protected Player player;
-    float rotationfloat = 0.25f;
+    protected float rotationfloat = 40f;
 
 
     bool isAlive = true;
@@ -49,20 +49,17 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterMoving()
     {
-        if (targetPlayer.transform.position != null && isAlive == true && isAttacking == false)
+        if (targetPlayer.transform.position != null && isAlive == true )
         {
+                transform.LookAt(targetPlayer.transform.position);
             if (targetPlayer.CompareTag("Player"))
             {
+                if(isAttacking == false)
+                 monsterAnimator.SetBool("IsRun", true);
 
-                monsterAnimator.SetBool("IsRun", true);
-                transform.LookAt(targetPlayer.transform.position);
+                
 
-                transform.rotation = Quaternion.RotateTowards(
-                    transform.rotation,
-                    Quaternion.LookRotation(targetPlayertransform.position),
-                    rotationfloat * Time.deltaTime);
 
-               
             }
 
         }

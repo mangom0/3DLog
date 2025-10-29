@@ -54,13 +54,13 @@ public class Golem : MonsterBase
         targetPlayer = GameObject.FindWithTag("Player");
         targetPlayertransform = targetPlayer.transform;
     }
-    public void golemMoveSpeedUp()
+    public void GolemMoveSpeedUp()
     {
         monsterStatus.moveSpeed = 2;
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
         MonsterMoving();
         MonsterDead();
