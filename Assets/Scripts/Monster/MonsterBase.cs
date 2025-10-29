@@ -51,8 +51,12 @@ public class MonsterBase : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             monsterAnimator.SetBool("Attack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
-            Debug.Log("Player 체력 : " + player.playerStatus.hp);
+
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(monsterStatus.damage);
+            }
         }
 
     }
@@ -66,8 +70,12 @@ public class MonsterBase : MonoBehaviour
             {
                 time = 0;
                 monsterAnimator.SetBool("Attack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
+
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(monsterStatus.damage);
+                }
             }
         }
     }
