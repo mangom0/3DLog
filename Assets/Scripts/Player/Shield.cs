@@ -14,7 +14,7 @@ public class Shield : MonoBehaviour, ISkill
     //쿨타임
     [SerializeField] float _cooldown = 5f;
     //습득 시 실드로서 기능할 오브젝트
-    [SerializeField] ShieldActivation _shieldEffect;
+    [SerializeField] public ShieldActivation _shieldEffect;
     [SerializeField] Player player;
 
     //내부적으로 사용할, 현재 시점의 쿨타임 및 지속시간
@@ -30,7 +30,6 @@ public class Shield : MonoBehaviour, ISkill
     {
         curDuration = _duration;
         curCooldown = _cooldown;
-        player.ShieldHP = _value;
     }
 
     private void Update()
@@ -48,19 +47,22 @@ public class Shield : MonoBehaviour, ISkill
             if (curCooldown <= _timeFlow)
             {
                 _isActive = true;
-                player.ShieldHP = _value;
-                Instantiate(_shieldEffect, player.gameObject.transform);
+                _shieldEffect._shieldHp = _value;
+                _shieldEffect.gameObject.SetActive(true);
+                Debug.Log("현재 잔여 보호막 수치 : " + _shieldEffect._shieldHp);
                 _timeFlow = 0;
             }
         }
         else if (_isActive == true)
         {
+            _shieldEffect.transform.position = player.transform.position;
             player.isShieldActive = true;
             if (_shieldEffect._shieldHp <= 0 || curDuration <= _timeFlow)
             {
                 if(_shieldEffect._shieldHp > 0)
                     _shieldEffect.ShieldTakeDamage(_shieldEffect._shieldHp + 1);
                 _isActive = false;
+                _shieldEffect.gameObject.SetActive(false);
                 _timeFlow = 0;
 
             }

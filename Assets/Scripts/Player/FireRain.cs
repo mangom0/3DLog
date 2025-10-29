@@ -26,12 +26,6 @@ public class FireRain : MonoBehaviour, ISkill
     float _rank = 1;
     //파이어레인 마법이 발동되었는지 체크해줄 bool형 변수
     bool _isActive = false;
-    //내부에 들어온 적에게 일정 주기마다 입힐 데미지
-    float _damage = 0;
-    //적에게 입힐 데미지의 주기
-    float _time = 0.3f;
-    //주기를 확인하기 위한 임시 시간변수
-    float curTime = 0;
     //랭크 상승에 따른 생성 횟수.
     float _spawnTime;
     private void Awake()
@@ -48,7 +42,6 @@ public class FireRain : MonoBehaviour, ISkill
 
         curDuration = _duration;
         curCooldown = _cooldown;
-        _damage = _value;
         _spawnTime = _rank;
     }
 

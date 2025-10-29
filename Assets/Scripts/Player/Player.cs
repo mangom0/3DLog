@@ -5,8 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] Animator _animator;
-    public bool isShieldActive = false;
     [SerializeField] FireBall fireBall;
+    [SerializeField] Shield shield;
     PlayerMove controller;
 
     Camera veiwCamera;
@@ -36,6 +36,7 @@ public class Player : MonoBehaviour
     public bool _skillTwoLearned = false;
     public bool _skillThreeLearned = false;
     public bool _skillFourthLearned = false;
+    public bool isShieldActive = false;
 
     void Start()
     {
@@ -104,7 +105,14 @@ public class Player : MonoBehaviour
     // ������ �ޱ�
     public void TakeDamage(float amount)
     {
-        currentHp -= amount;
+        if(isShieldActive == true)
+        {
+            shield._shieldEffect.ShieldTakeDamage(amount);
+        }
+        else
+        {
+            currentHp -= amount;
+        }
         if (currentHp < 0f)
         {
             currentHp = 0f;
