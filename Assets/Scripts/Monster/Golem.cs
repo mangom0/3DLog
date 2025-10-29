@@ -10,14 +10,18 @@ public class Golem : MonsterBase
     
     private void OnCollisionEnter(Collision collision)
     {
+      
+            if (collision.gameObject.tag == "Player")
+            {
+                monsterAnimator.SetBool("Attack", true);
 
-        if (collision.gameObject.tag == "Player")
-        {
-            monsterAnimator.SetBool("IsAttack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(monsterStatus.damage);
+                }
+            }
             monsterStatus.moveSpeed = 0.0001f;
-            Debug.Log("Player 체력 : " + player.playerStatus.hp);
-        }
         
 
     }
@@ -30,11 +34,15 @@ public class Golem : MonsterBase
             if (time > delayTime)
             {
                 time = 0;
-                monsterAnimator.SetBool("IsAttack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                monsterStatus.moveSpeed = 0.0001f;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
-                
+                monsterAnimator.SetBool("Attack", true);
+
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(monsterStatus.damage);
+                }
+
+
             }
         }
         

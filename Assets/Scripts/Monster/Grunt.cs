@@ -12,14 +12,15 @@ public class Grunt : MonsterBase
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if (collision.gameObject.tag == "Player")
         {
-            isAttacking = true;
-            monsterAnimator.SetBool("IsAttack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
-            Debug.Log("Player 체력 : " + player.playerStatus.hp);
-            monsterStatus.moveSpeed = 0;
+            monsterAnimator.SetBool("Attack", true);
+
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(monsterStatus.damage);
+            }
         }
 
     }
@@ -33,10 +34,14 @@ public class Grunt : MonsterBase
             if (time > delayTime)
             {
                 time = 0;
-                monsterAnimator.SetBool("IsAttack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
-                monsterStatus.moveSpeed = 0;
+                monsterAnimator.SetBool("Attack", true);
+
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(monsterStatus.damage);
+                }
+
             }
         }
     }

@@ -48,41 +48,8 @@ public class MonsterBase : MonoBehaviour
         monsterAnimator.SetBool("Attack", false);
 
     }
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Player")
-        {
-            monsterAnimator.SetBool("Attack", true);
-
-            Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage(monsterStatus.damage);
-            }
-        }
-
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Player")
-        {
-            time += Time.deltaTime;
-            if (time > delayTime)
-            {
-                time = 0;
-                monsterAnimator.SetBool("Attack", true);
-
-
-                Player player = collision.gameObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage(monsterStatus.damage);
-                }
-            }
-        }
-    }
+   
+   
 
     protected virtual void MonsterAttack()
     {

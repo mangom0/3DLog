@@ -24,11 +24,16 @@ public class Lich : MonsterBase
         {
             isAttacking = true;
             monsterAnimator.SetBool("IsAttack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
-            Debug.Log("Player 체력 : " + player.playerStatus.hp);
-            monsterStatus.moveSpeed = 0;
-        }
+            monsterAnimator.SetBool("Attack", true);
 
+            Player player = collision.gameObject.GetComponent<Player>();
+            if (player != null)
+            {
+                player.TakeDamage(monsterStatus.damage);
+            }
+
+
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
@@ -40,10 +45,14 @@ public class Lich : MonsterBase
             if (time > delayTime)
             {
                 time = 0;
-                monsterAnimator.SetBool("IsAttack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player 체력 : " + player.playerStatus.hp);
-                monsterStatus.moveSpeed = 0;
+                monsterAnimator.SetBool("Attack", true);
+
+                Player player = collision.gameObject.GetComponent<Player>();
+                if (player != null)
+                {
+                    player.TakeDamage(monsterStatus.damage);
+                }
+
             }
         }
     }
