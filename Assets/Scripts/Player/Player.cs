@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     [Header("Etc")]
     public float magnetRange = 3f;
+    public int gold = 0;
 
     //��ų �ر� ����
     public bool _skillOneLearned = false;
@@ -188,4 +189,26 @@ public class Player : MonoBehaviour
         // TODO: ���ӿ��� ó��, ������ ��
     }
 
+    public void AddGold(int amount)
+    {
+        gold += amount;
+        Debug.Log("골드 획득: " + amount + " / 현재 골드: " + gold);
+        // TODO: 골드 UI 갱신 (상점 UI 텍스트 등)
+    }
+
+    public bool SpendGold(int cost)
+    {
+        if (gold >= cost)
+        {
+            gold -= cost;
+            Debug.Log("골드 사용: " + cost + " / 남은 골드: " + gold);
+            // TODO: 골드 UI 갱신
+            return true;
+        }
+        else
+        {
+            Debug.Log("골드 부족!");
+            return false;
+        }
+    }
 }

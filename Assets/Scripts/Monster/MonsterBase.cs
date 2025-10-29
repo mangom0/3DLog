@@ -121,23 +121,30 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterDead()
     {
-           
+
         if (monsterStatus.hp <= 0)
         {
-            if(isAlive == true)
+            if (isAlive == true)
             {
-                Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
-                Debug.Log("ȹ�� ��� : " + monsterGold);
+                // 경험치 드랍
+                Instantiate(expObject, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+
+                // 골드 지급
+                if (player != null)
+                {
+                    player.AddGold(monsterGold);
+                }
+
+                Debug.Log("획득 골드 : " + monsterGold);
                 isAlive = false;
             }
+
             monsterStatus.hp = 0;
             monsterAnimator.SetBool("Run", false);
             monsterAnimator.SetBool("IsDead", true);
 
             monsterStatus.moveSpeed = 0;
-
             monsterHitRadius.enabled = false;
-            
 
             Destroy(gameObject, 3);
         }
