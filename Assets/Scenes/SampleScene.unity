@@ -413,16 +413,6 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &347704971 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4488244662143031348, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
-  m_PrefabInstance: {fileID: 1190808611}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &347704972 stripped
-SphereCollider:
-  m_CorrespondingSourceObject: {fileID: 5744349278979846976, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
-  m_PrefabInstance: {fileID: 1190808611}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &467066644
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +493,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7398416704310732555, guid: 5f5de8b186f053d4b8cfd6849bd99040, type: 3}
   m_PrefabInstance: {fileID: 1497638616}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &498385356 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4488244662143031348, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
+  m_PrefabInstance: {fileID: 1185377652}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &498385357 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 5744349278979846976, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
+  m_PrefabInstance: {fileID: 1185377652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &532617421
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,6 +558,22 @@ PrefabInstance:
     - target: {fileID: 2722633257662339608, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: _skillOneLearned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: _skillTwoLearned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: _skillThreeLearned
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+      propertyPath: _skillFourthLearned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -725,6 +741,16 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &816520056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4870522907607723540, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+  m_PrefabInstance: {fileID: 532617421}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &816520058 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7579022652860524301, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+  m_PrefabInstance: {fileID: 532617421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &890232375
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -879,6 +905,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2722633257662339608, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
   m_PrefabInstance: {fileID: 532617421}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &896714676 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+  m_PrefabInstance: {fileID: 532617421}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896714674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69945c93a78c2df4eb6fd72dd62e2f56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1173,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092506858}
   m_CullTransparentMesh: 1
---- !u!1001 &1190808611
+--- !u!1001 &1185377652
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1187,10 +1224,6 @@ PrefabInstance:
     - target: {fileID: 4488244662143031348, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
       propertyPath: m_Name
       value: IceField
-      objectReference: {fileID: 0}
-    - target: {fileID: 5744349278979846976, guid: d011dbc962fe0ee4cb150ce0ad726e86, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1319,15 +1352,15 @@ PrefabInstance:
     - target: {fileID: 2508220821645422809, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 896714676}
     - target: {fileID: 2508220821645422809, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: _collider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 816520058}
     - target: {fileID: 2508220821645422809, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: _shieldEffect
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 816520056}
     - target: {fileID: 8265630862261509543, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1435,10 +1468,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireRain
       objectReference: {fileID: 0}
-    - target: {fileID: 8983569938370699544, guid: b01d3f4f88712ce459bc1a000b7243a7, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 896714674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1461,12 +1490,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 268790a86038e794892794196e028bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collider: {fileID: 347704972}
+  _collider: {fileID: 498385357}
   _value: 5
   _duration: 5
   _cooldown: 10
-  _iceFieldEffect: {fileID: 347704971}
-  player: {fileID: 0}
+  _iceFieldEffect: {fileID: 498385356}
+  player: {fileID: 896714676}
 --- !u!114 &1440567714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1484,7 +1513,7 @@ MonoBehaviour:
   _duration: 5
   _cooldown: 15
   _fireRainEffect: {fileID: 1024132641}
-  player: {fileID: 0}
+  player: {fileID: 896714676}
 --- !u!1001 &1497638616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2858,9 +2887,9 @@ SceneRoots:
   - {fileID: 1284704650}
   - {fileID: 890232375}
   - {fileID: 1060646287}
-  - {fileID: 1190808611}
   - {fileID: 1357643397}
   - {fileID: 3853454535818068817}
   - {fileID: 1833649879}
   - {fileID: 1497638616}
   - {fileID: 1274541356}
+  - {fileID: 1185377652}

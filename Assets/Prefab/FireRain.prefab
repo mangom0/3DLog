@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2773464611054103236}
   - component: {fileID: 2990458930846982062}
-  - component: {fileID: 8983569938370699544}
   m_Layer: 0
   m_Name: FireRain
   m_TagString: Untagged
@@ -26,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3950397737145053929}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.276, y: 3.11, z: -1.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -55,23 +54,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 1, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8983569938370699544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3950397737145053929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e469b516aff94fe469100e4f62e712a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  offsetX: 0
-  offsetY: 0
-  offsetZ: 0
-  DelayTime: 7
 --- !u!1001 &5926021810826342110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,7 +100,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5690135326645581097, guid: ae9bdcaa1a8496449b1068fd7844906c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.29
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5690135326645581097, guid: ae9bdcaa1a8496449b1068fd7844906c, type: 3}
       propertyPath: m_LocalPosition.z
