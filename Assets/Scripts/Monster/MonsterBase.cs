@@ -34,7 +34,7 @@ public class MonsterBase : MonoBehaviour
         if (other.gameObject.tag == "Skill")
         {
             monsterStatus.hp -= 70;
-            Debug.Log("Ãæµ¹ °¨Áö, ÇöÀç Ã¼·Â" + monsterStatus.hp);
+            Debug.Log("ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½" + monsterStatus.hp);
         }
     }
 
@@ -70,6 +70,7 @@ public class MonsterBase : MonoBehaviour
             {
                 time = 0;
                 monsterAnimator.SetBool("Attack", true);
+
 
                 Player player = collision.gameObject.GetComponent<Player>();
                 if (player != null)
@@ -115,7 +116,7 @@ public class MonsterBase : MonoBehaviour
     public virtual void MonsterDamageTaken(float _damage)
     {
         monsterStatus.hp -= _damage;
-
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½" + monsterStatus.hp);
     }
 
     protected void MonsterDead()
@@ -126,7 +127,7 @@ public class MonsterBase : MonoBehaviour
             if(isAlive == true)
             {
                 Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
-                Debug.Log("È¹µæ °ñµå : " + monsterGold);
+                Debug.Log("È¹ï¿½ï¿½ ï¿½ï¿½ï¿½ : " + monsterGold);
                 isAlive = false;
             }
             monsterStatus.hp = 0;
