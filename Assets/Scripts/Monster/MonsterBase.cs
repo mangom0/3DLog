@@ -10,15 +10,16 @@ public class MonsterBase : MonoBehaviour
     public GameObject targetPlayer;
     public Transform targetPlayertransform;
     protected Status monsterStatus;
-    public int monsterGold = 0;    
+    public int monsterGold = 0;
     public Animator monsterAnimator;
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
-    Player player;
+    protected Player player;
+    float rotationfloat = 0.25f;
 
-    float time = 0;
-    float delayTime =1.35f;
+
     bool isAlive = true;
+    protected bool isAttacking = false;
 
 
 
@@ -27,6 +28,7 @@ public class MonsterBase : MonoBehaviour
         player = FindObjectOfType<Player>();
         monsterHitRadius = GetComponent<Collider>();
         monsterGold = Random.Range(1, 10);
+
 
     }
     private void OnTriggerEnter(Collider other)
@@ -38,71 +40,44 @@ public class MonsterBase : MonoBehaviour
         }
     }
 
-    
-
-    private void OnCollisionExit(Collision collision)
-    {
-        monsterAnimator.SetBool("Attack", false);
-
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Player")
-        {
-            monsterAnimator.SetBool("Attack", true);
-            player.playerStatus.hp -= monsterStatus.damage;
-            Debug.Log("Player Ã¼·Â : " + player.playerStatus.hp);
-        }
-
-    }
-    private void OnCollisionStay(Collision collision)
-    {
-
-        if (collision.gameObject.tag == "Player")
-        {
-            time += Time.deltaTime;
-            if (time > delayTime)
-            {
-                time = 0;
-                monsterAnimator.SetBool("Attack", true);
-                player.playerStatus.hp -= monsterStatus.damage;
-                Debug.Log("Player Ã¼·Â : " + player.playerStatus.hp);
-            }
-        }
-    }
     protected virtual void MonsterAttack()
     {
 
-        
+
 
     }
 
     protected void MonsterMoving()
     {
-        if (targetPlayer.transform.position != null && isAlive==true)
+        if (targetPlayer.transform.position != null && isAlive == true && isAttacking == false)
         {
             if (targetPlayer.CompareTag("Player"))
             {
-                monsterAnimator.SetBool("Run", true);
+
+                monsterAnimator.SetBool("IsRun", true);
                 transform.LookAt(targetPlayer.transform.position);
 
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    Quaternion.LookRotation(targetPlayertransform.position),
+                    rotationfloat * Time.deltaTime);
+
+               
             }
 
         }
-        else
-        {
-
-        }
 
 
-         transform.position = Vector3.MoveTowards(
-         transform.position,
-         targetPlayer.transform.position,
-         monsterStatus.moveSpeed * Time.deltaTime);
 
+        transform.position = Vector3.MoveTowards(
+        transform.position,
+        targetPlayer.transform.position,
+        monsterStatus.moveSpeed * Time.deltaTime);
 
     }
+
+
+
 
     public virtual void MonsterDamageTaken(float _damage)
     {
@@ -112,27 +87,27 @@ public class MonsterBase : MonoBehaviour
 
     protected void MonsterDead()
     {
-           
+
         if (monsterStatus.hp <= 0)
         {
-            if(isAlive == true)
+            if (isAlive == true)
             {
-                Instantiate(expObject,gameObject.transform.position,Quaternion.Euler(0,0,0));
+                Instantiate(expObject, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 Debug.Log("È¹µæ °ñµå : " + monsterGold);
                 isAlive = false;
             }
             monsterStatus.hp = 0;
-            monsterAnimator.SetBool("Run", false);
+            monsterAnimator.SetBool("IsRun", false);
             monsterAnimator.SetBool("IsDead", true);
 
             monsterStatus.moveSpeed = 0;
 
             monsterHitRadius.enabled = false;
-            
+
 
             Destroy(gameObject, 3);
         }
     }
-    
-   
+
+
 }
