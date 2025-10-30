@@ -14,12 +14,13 @@ public class HealingItem : MonoBehaviour
 
             if (player != null)
             {
-                if (player.currentHp <= 0) // 플레이어 체력이 0 되서 죽으면 작동 안 됨
+                if (player.currentHp <= 0) // 플레이어 체력이 0 되서 죽으면 작동이 안 됨!
                 {
                     return; 
                 }
-              
-                player.currentHp += healAdd;
+
+                //player.currentHp += healAdd;
+                player.Heal(healAdd); // ui바 연동
 
                 if (player.currentHp > 100f) // 100f 대체 playerStatus.maxhp
                 {

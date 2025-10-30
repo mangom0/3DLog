@@ -14,7 +14,7 @@ public class MonsterBase : MonoBehaviour
     public Animator monsterAnimator;
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
-    protected Player player;
+    [SerializeField] protected Player player;
     protected float rotationfloat = 40f;
 
 
@@ -25,6 +25,7 @@ public class MonsterBase : MonoBehaviour
 
     private void Awake()
     {
+        player = GetComponent<Player>();
         player = FindObjectOfType<Player>();
         monsterHitRadius = GetComponent<Collider>();
         monsterGold = Random.Range(1, 10);
