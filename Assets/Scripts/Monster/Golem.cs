@@ -6,47 +6,37 @@ public class Golem : MonsterBase
 {
     float time = 0;
     float delayTime = 2.6f;
-   
-    
+
+
     private void OnCollisionEnter(Collision collision)
     {
-      
-            if (collision.gameObject.tag == "Player")
-            {
-                monsterAnimator.SetBool("Attack", true);
 
-                Player player = collision.gameObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage(monsterStatus.damage);
-                }
-            }
-            monsterStatus.moveSpeed = 0.0001f;
-        
-
+        if (collision.gameObject.tag == "Player")
+        {
+            isAttacking = true;
+            monsterAnimator.SetBool("IsAttack", true);
+        }
     }
     private void OnCollisionStay(Collision collision)
     {
 
         if (collision.gameObject.tag == "Player")
         {
+            //isAttacking = true;
             time += Time.deltaTime;
             if (time > delayTime)
             {
                 time = 0;
-                monsterAnimator.SetBool("Attack", true);
+                monsterAnimator.SetBool("IsAttack", true);
 
                 Player player = collision.gameObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage(monsterStatus.damage);
-                }
 
 
             }
         }
-        
-    }
+    
+
+}
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -64,6 +54,15 @@ public class Golem : MonsterBase
     }
     public void GolemMoveSpeedUp()
     {
+        if (player != null)
+        {
+            if (isAttacking == true)
+            {
+                return;
+            }
+            player.TakeDamage(monsterStatus.damage);
+            Debug.Log(player.currentHp);
+        }
         monsterStatus.moveSpeed = 2;
     }
 
