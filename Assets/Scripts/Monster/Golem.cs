@@ -56,10 +56,7 @@ public class Golem : MonsterBase
     {
         if (player != null)
         {
-            if (isAttacking == true)
-            {
-                return;
-            }
+           
             player.TakeDamage(monsterStatus.damage);
             Debug.Log(player.currentHp);
         }

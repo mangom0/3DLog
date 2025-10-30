@@ -17,6 +17,7 @@ public class Grunt : MonsterBase
         {
             isAttacking = true;
             monsterAnimator.SetBool("IsAttack", true);
+            //monsterStatus.moveSpeed = 0;
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -24,6 +25,7 @@ public class Grunt : MonsterBase
 
         if (collision.gameObject.tag == "Player")
         {
+            monsterStatus.moveSpeed = 0;
             isAttacking = true;
             time += Time.deltaTime;
             if (time > delayTime)
@@ -64,23 +66,20 @@ public class Grunt : MonsterBase
         
 
     }
-    public void GruntMoveSpeedUp()
+    public void GruntAttack()
     {
-
-        if (player != null)
-        {
-            if (isAttacking == true)
-            {
-                return;
-            }
             player.TakeDamage(monsterStatus.damage);
             Debug.Log(player.currentHp);
-        }
+        
         transform.LookAt(targetPlayer.transform.position);
-        monsterStatus.moveSpeed = 3;
-                isAttacking = false;
+        
+        isAttacking = false;
 
        
+    }
+    public void GruntMoveSpeedUp()
+    {
+        monsterStatus.moveSpeed = 3;
     }
 
     // Update is called once per frame

@@ -25,8 +25,8 @@ public class MonsterBase : MonoBehaviour
 
     private void Awake()
     {
-        player = FindObjectOfType<Player>();
         player = GetComponent<Player>();
+        player = FindObjectOfType<Player>();
         monsterHitRadius = GetComponent<Collider>();
         monsterGold = Random.Range(1, 10);
 
