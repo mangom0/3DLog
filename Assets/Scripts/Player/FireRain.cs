@@ -13,7 +13,7 @@ public class FireRain : MonoBehaviour, ISkill
     //쿨타임
     [SerializeField] float _cooldown = 15f;
     //시각적으로 보이는 해당 스킬 이펙트
-    [SerializeField] GameObject _fireRainEffect;
+    [SerializeField] public GameObject _fireRainEffect;
     //떨어지도록 구현할 대상이 되어줄 플레이어
     [SerializeField] Player player;
 
@@ -23,7 +23,7 @@ public class FireRain : MonoBehaviour, ISkill
     //시간 경과를 체크하기 위한 변수
     float _timeFlow = 0;
     //강화 단계
-    float _rank = 1;
+    public float _rank = 0;
     //파이어레인 마법이 발동되었는지 체크해줄 bool형 변수
     bool _isActive = false;
     //랭크 상승에 따른 생성 횟수.
@@ -58,10 +58,12 @@ public class FireRain : MonoBehaviour, ISkill
 
     private void Update()
     {
-        
-        Effect();
-        _timeFlow += Time.deltaTime;
-        RankUpCheck();
+        if(_rank >= 1)
+        {
+            Effect();
+            _timeFlow += Time.deltaTime;
+            RankUpCheck();
+        }
     }
 
     public void Effect()

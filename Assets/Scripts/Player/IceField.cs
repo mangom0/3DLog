@@ -13,7 +13,7 @@ public class IceField : MonoBehaviour
     //쿨타임
     [SerializeField] float _cooldown = 10f;
     //시각적으로 보이는 해당 스킬 이펙트
-    [SerializeField] GameObject _iceFieldEffect;
+    [SerializeField] public GameObject _iceFieldEffect;
     //_iceFieldEffect에 들어가게 될 랭크 별 이펙트
     [SerializeField] GameObject _rankOneEffect;
     [SerializeField] GameObject _rankTwoEffect;
@@ -28,7 +28,7 @@ public class IceField : MonoBehaviour
     //시간 경과를 체크하기 위한 변수
     float _timeFlow = 0;
     //강화 단계
-    float _rank = 1;
+    public float _rank = 0;
     //아이스필드 마법이 발동되었는지 체크해줄 bool형 변수
     bool _isActive = false;
     //내부에 들어온 적에게 일정 주기마다 입힐 데미지
@@ -79,9 +79,12 @@ public class IceField : MonoBehaviour
 
     private void Update()
     {
-        Effect();
-        _timeFlow += Time.deltaTime;
-        RankUpCheck();
+        if(_rank>=1)
+        {
+            Effect();
+            _timeFlow += Time.deltaTime;
+            RankUpCheck();
+        }
     }
 
     public void Effect()
