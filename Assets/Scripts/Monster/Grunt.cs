@@ -15,7 +15,7 @@ public class Grunt : MonsterBase
 
         if (collision.gameObject.tag == "Player")
         {
-            isAttacking = true;
+            //isAttacking = true;
             monsterAnimator.SetBool("IsAttack", true);
             //monsterStatus.moveSpeed = 0;
         }
