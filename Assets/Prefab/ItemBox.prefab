@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1087357184811585585}
   - component: {fileID: 3172428925597983669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chest_Animated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 7621795836104729832}
   - component: {fileID: 4367403872923959819}
   - component: {fileID: 983076723511236586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chest_Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,9 +116,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 710459013887930531}
   - component: {fileID: 8243612767134396858}
   - component: {fileID: 8298918004269178266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Chest_Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,9 +201,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
-  - {fileID: 2100000, guid: 3758b6f9e13a44b4dabb5ad47ee50ff5, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
+  - {fileID: 2100000, guid: 785cf0f9a6d69f64ba3d73daa008122d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -236,7 +236,8 @@ GameObject:
   - component: {fileID: 3324105459090407827}
   - component: {fileID: 4208769552395992080}
   - component: {fileID: 2933464489228926607}
-  m_Layer: 0
+  - component: {fileID: 2509750976698861173}
+  m_Layer: 8
   m_Name: ItemBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +253,7 @@ Transform:
   m_GameObject: {fileID: 7777424819917478041}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.23, y: 0, z: -0.6886606}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -307,3 +308,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &2509750976698861173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777424819917478041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd37554717e068b418679dc3cbc620a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxItem:
+  - {fileID: 670951075297366467, guid: cd57082c8d510214c93b4bfd7bcaa539, type: 3}
+  - {fileID: 6540505330202540626, guid: 1909bbcfdcecbfb4a828e7de2a23f9b7, type: 3}
+  - {fileID: 3468085036914832552, guid: f45420be213bc94498bbf362c7d4bfad, type: 3}
+  boxOpen: {fileID: 3172428925597983669}
