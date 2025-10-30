@@ -73,9 +73,12 @@ public class Lich : MonsterBase
         monsterStatus.moveSpeed = 3;
         monsterStatus.damage = 20;
         targetPlayer = GameObject.FindWithTag("Player");
+        player = targetPlayer.GetComponent<Player>();
+
+        
         targetPlayertransform = targetPlayer.transform;
 
-
+        
 
 
     }
@@ -104,7 +107,7 @@ public class Lich : MonsterBase
         }
 
         monsterStatus.moveSpeed = 3;
-    
+
 
     }
     private void RayShot()
