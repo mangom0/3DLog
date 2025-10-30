@@ -31,14 +31,6 @@ public class MonsterBase : MonoBehaviour
 
 
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Skill")
-        {
-            monsterStatus.hp -= 70;
-            Debug.Log("�浹 ����, ���� ü��" + monsterStatus.hp);
-        }
-    }
 
 
     
@@ -87,7 +79,7 @@ public class MonsterBase : MonoBehaviour
     public virtual void MonsterDamageTaken(float _damage)
     {
         monsterStatus.hp -= _damage;
-        Debug.Log("���� ü��" + monsterStatus.hp);
+        Debug.Log("현재 체력" + monsterStatus.hp);
     }
 
     protected void MonsterDead()
