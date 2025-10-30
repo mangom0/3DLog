@@ -24,13 +24,13 @@ public class Grunt : MonsterBase
 
         if (collision.gameObject.tag == "Player")
         {
-            //isAttacking = true;
+            isAttacking = true;
             time += Time.deltaTime;
             if (time > delayTime)
             {
                 time = 0;
                 monsterAnimator.SetBool("IsAttack", true);
-
+                
                 Player player = collision.gameObject.GetComponent<Player>();
 
 
@@ -78,7 +78,7 @@ public class Grunt : MonsterBase
         }
         transform.LookAt(targetPlayer.transform.position);
         monsterStatus.moveSpeed = 3;
-        isAttacking = false;
+                isAttacking = false;
 
        
     }

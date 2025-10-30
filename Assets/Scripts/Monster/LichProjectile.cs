@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LichProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject lichProjectile;
     void Start()
     {
         

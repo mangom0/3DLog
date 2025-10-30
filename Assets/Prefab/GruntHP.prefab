@@ -650,6 +650,7 @@ MonoBehaviour:
   monsterGold: 0
   monsterAnimator: {fileID: 2525871541478412909}
   monsterHitRadius: {fileID: 0}
+  player: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
 --- !u!1 &6139524380143634164
 GameObject:
   m_ObjectHideFlags: 0
