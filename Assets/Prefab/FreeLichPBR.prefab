@@ -286,8 +286,9 @@ MonoBehaviour:
   monsterGold: 0
   monsterAnimator: {fileID: 5038030191025577329}
   monsterHitRadius: {fileID: 290861259736207445}
-  player: {fileID: 0}
+  player: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
   detectedRange: 7
+  lichfrostbolts: {fileID: 4488244662143031348, guid: f1c90826d777bb544bd3ec3e21367ea3, type: 3}
   layerDetect:
     serializedVersion: 2
     m_Bits: 64

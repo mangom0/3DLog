@@ -10,8 +10,9 @@ public class Lich : MonsterBase
     float delayTime = 1.3f;
     float MagicDelayTime = 2.3f;
 
+    LichFrostBolt lichfrost;
     [SerializeField] private float detectedRange;
-
+    [SerializeField] private GameObject lichfrostbolts;
     [SerializeField] LayerMask layerDetect;
 
     Ray lichRay;
@@ -99,6 +100,7 @@ public class Lich : MonsterBase
             }
             player.TakeDamage(monsterStatus.damage);
             Debug.Log(player.currentHp);
+            isAttacking = false;
         }
 
         monsterStatus.moveSpeed = 3;
@@ -121,6 +123,7 @@ public class Lich : MonsterBase
                    
                     magicTime += Time.deltaTime;
                     monsterAnimator.SetBool("IsMagic", true);
+                    //lichfrost.FrostBolt();
                     isMagic = true;
                     monsterStatus.moveSpeed = 0;
                     Debug.Log("플레이어 인식");
