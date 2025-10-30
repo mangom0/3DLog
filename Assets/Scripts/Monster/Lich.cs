@@ -91,15 +91,13 @@ public class Lich : MonsterBase
     {
 
         
-        if (player != null)
-        {
             if (isMagic == true)
             {
                 return;
             }
             player.TakeDamage(monsterStatus.damage);
             Debug.Log(player.currentHp);
-        }
+        
 
         monsterStatus.moveSpeed = 3;
     

@@ -732,6 +732,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FreeLichPBR
       objectReference: {fileID: 0}
+    - target: {fileID: 4500513962091580281, guid: 7061508dc07eb2a4ea4a92a04a1d025e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 896714676}
+    - target: {fileID: 4500513962091580281, guid: 7061508dc07eb2a4ea4a92a04a1d025e, type: 3}
+      propertyPath: targetPlayer
+      value: 
+      objectReference: {fileID: 896714674}
+    - target: {fileID: 4500513962091580281, guid: 7061508dc07eb2a4ea4a92a04a1d025e, type: 3}
+      propertyPath: targetPlayertransform
+      value: 
+      objectReference: {fileID: 896714678}
     - target: {fileID: 4781452391976956713, guid: 7061508dc07eb2a4ea4a92a04a1d025e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 22.830343
@@ -1806,7 +1818,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &794197789
 Transform:
   m_ObjectHideFlags: 0
@@ -2231,6 +2243,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69945c93a78c2df4eb6fd72dd62e2f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &896714678 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1188449841725120653, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+  m_PrefabInstance: {fileID: 532617421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2633,7 +2650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 373605842581682388, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2508220821645422809, guid: f2e715e3cbd98b740bdb2ac2fa947790, type: 3}
       propertyPath: player
@@ -3854,6 +3871,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9059657172392746822, guid: 19f5a7670f9c5e34a88c49fb5055eeba, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 896714676}
+    - target: {fileID: 9059657172392746822, guid: 19f5a7670f9c5e34a88c49fb5055eeba, type: 3}
+      propertyPath: targetPlayer
+      value: 
+      objectReference: {fileID: 896714674}
+    - target: {fileID: 9059657172392746822, guid: 19f5a7670f9c5e34a88c49fb5055eeba, type: 3}
+      propertyPath: targetPlayertransform
+      value: 
+      objectReference: {fileID: 896714678}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
