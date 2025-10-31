@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterSpawner : MonoBehaviour
+public class MonsterSpawnerLeft : MonoBehaviour
 {
 
     [SerializeField] private GameObject spawnMonster;
@@ -26,7 +26,7 @@ public class MonsterSpawner : MonoBehaviour
 
           yield return delay;
           System.Random rnd = new System.Random();
-            Vector3 spawn = new Vector3 (rnd.Next(-74,74), 0, 74);
+            Vector3 spawn = new Vector3 (-74, 0, rnd.Next(-74, 74));
             Instantiate(spawnMonster, spawn, Quaternion.identity);
 
 
