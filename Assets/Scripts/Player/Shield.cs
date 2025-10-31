@@ -75,6 +75,7 @@ public class Shield : MonoBehaviour, ISkill
     {
             _rank++;
             _isActive = false;
+        _shieldEffect.gameObject.SetActive(false);
             _timeFlow = 0;
             if(_rank == 2)
             {
