@@ -9685,9 +9685,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a807212b0d8b44a9fbb1f80c619f9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
-  moveSpeed: 7.5
-  damage: 80
+  moveSpeed: 7
+  damage: 10
 --- !u!135 &1964737572177483772
 SphereCollider:
   m_ObjectHideFlags: 0

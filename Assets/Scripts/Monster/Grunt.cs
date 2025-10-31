@@ -64,9 +64,6 @@ public class Grunt : MonsterBase
         player = targetPlayer.GetComponent<Player>();
 
 
-
-
-
     }
     public void GruntAttack()
     {

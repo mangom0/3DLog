@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LichFrostBolt : MonoBehaviour
 {
-    LichProjectile projectile;
-    Transform lichTransform;
+    [SerializeField] LichProjectile projectile;
+    [SerializeField] Transform lichTransform;
 
     public void FrostBolt()
     {
         LichProjectile projectile = Instantiate(this.projectile, lichTransform.position, lichTransform.rotation);
     }
+    
 
 }

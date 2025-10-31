@@ -162,6 +162,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 458177609431715480}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1906944876329174332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015162429585461095}
+  m_Layer: 7
+  m_Name: AttackMotion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015162429585461095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906944876329174332}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.241, y: 1.286, z: 1.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4781452391976956713}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2647261053797873045
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +206,7 @@ GameObject:
   - component: {fileID: 290861259736207445}
   - component: {fileID: 4714093655004327994}
   - component: {fileID: 4500513962091580281}
+  - component: {fileID: 3606197319558705284}
   m_Layer: 7
   m_Name: FreeLichPBR
   m_TagString: Untagged
@@ -191,12 +223,13 @@ Transform:
   m_GameObject: {fileID: 2647261053797873045}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -7.0433125, y: 0, z: -0.7610318}
+  m_LocalPosition: {x: 22.830343, y: 0.0000019073486, z: 10.715549}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5567961553654020378}
   - {fileID: 4675074824855144176}
+  - {fileID: 2015162429585461095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &5038030191025577329
@@ -287,11 +320,26 @@ MonoBehaviour:
   monsterAnimator: {fileID: 5038030191025577329}
   monsterHitRadius: {fileID: 290861259736207445}
   player: {fileID: 6422909339668994062, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
+  lichfrost: {fileID: 3606197319558705284}
   detectedRange: 7
   lichfrostbolts: {fileID: 4488244662143031348, guid: f1c90826d777bb544bd3ec3e21367ea3, type: 3}
   layerDetect:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &3606197319558705284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2647261053797873045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f85dece90d37b1749a692191719b7063, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 519777753469927735, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
+  lichTransform: {fileID: 2015162429585461095}
 --- !u!1 &3102725275891748215
 GameObject:
   m_ObjectHideFlags: 0

@@ -1323,7 +1323,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1188449841725120653, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.52
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1188449841725120653, guid: 490be1e3970aef342bb53cd2d0dc3c4d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1864,7 +1864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7273717059987992042, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.9693925
+      value: 7.98
       objectReference: {fileID: 0}
     - target: {fileID: 7273717059987992042, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2271,9 +2271,17 @@ PrefabInstance:
       propertyPath: damage
       value: 98
       objectReference: {fileID: 0}
+    - target: {fileID: 519777753469927735, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5033759551053174993, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
       propertyPath: m_Name
       value: LichProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5033759551053174993, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8686667136631287955, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2285,7 +2293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8686667136631287955, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.25
+      value: 4.18
       objectReference: {fileID: 0}
     - target: {fileID: 8686667136631287955, guid: 4dbf7f4c213736b40a38f1bf28bf3a3d, type: 3}
       propertyPath: m_LocalRotation.w
