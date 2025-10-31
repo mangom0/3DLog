@@ -27,6 +27,7 @@ public class HealthBarUI : MonoBehaviour
         if (player == null || hpSlider == null) return;
 
         // 슬라이더 값 반영
+        hpSlider.maxValue = player.maxHp;
         hpSlider.value = player.currentHp;
 
         // 텍스트도 갱신하고 싶으면

@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class SkillRankInterface : MonoBehaviour
 {
@@ -32,8 +34,6 @@ public class SkillRankInterface : MonoBehaviour
     private int thirdCard;
     //카드 선택을 완료했는지 확인하기 위한 bool형 변수
     public bool isPlayerSelected = true;
-    //레벨 변화로 인한 카드 셔플이 이루어진 것인지 확인하기 위한 bool형 변수
-    private bool isShuffled = false;
 
     GameObject _First;
     GameObject _Second;
@@ -67,12 +67,14 @@ public class SkillRankInterface : MonoBehaviour
         //기존 체크하던 레벨보다 플레이어 레벨이 높아지면
         if (player.level > level && isPlayerSelected == true)
         {
+            if (_skillInterface._one._rank == 3 && _skillInterface._two._rank == 3 &&
+                _skillInterface._three._rank == 3 && _skillInterface._four._rank == 3)
+                return;
             isPlayerSelected = false;
             _selectCanvas.gameObject.SetActive(true);
             //중복 체크를 제한하기 위해 일단 레벨부터 동일화
             level = player.level;
             
-                isShuffled = true;
             
         }
     }
@@ -81,7 +83,6 @@ public class SkillRankInterface : MonoBehaviour
     {
         if(isPlayerSelected == true)
         {
-            isShuffled = false;
             ShieldRankCheck();
             FireRainRankCheck();
             IceFieldRankCheck();
@@ -108,6 +109,7 @@ public class SkillRankInterface : MonoBehaviour
             Transform thirdStar = CardOne.transform.Find("Rank3");
             Image rankThree = thirdStar.GetComponent<Image>();
             rankThree.sprite = _obtainedRank;
+            CardOne.gameObject.SetActive(false);
         }
     }
     //화염비 카드 랭크 설정
@@ -134,6 +136,7 @@ public class SkillRankInterface : MonoBehaviour
             Transform thirdStar = CardTwo.transform.Find("Rank3");
             Image rankThree = thirdStar.GetComponent<Image>();
             rankThree.sprite = _obtainedRank;
+            CardTwo.gameObject.SetActive(false);
         }
     }
     //빙결지대 카드 랭크 설정
@@ -156,6 +159,7 @@ public class SkillRankInterface : MonoBehaviour
             Transform thirdStar = CardThree.transform.Find("Rank3");
             Image rankThree = thirdStar.GetComponent<Image>();
             rankThree.sprite = _obtainedRank;
+            CardThree.gameObject.SetActive(false);
         }
     }
     //질풍검 카드 랭크 설정
@@ -178,6 +182,7 @@ public class SkillRankInterface : MonoBehaviour
             Transform thirdStar = CardFour.transform.Find("Rank3");
             Image rankThree = thirdStar.GetComponent<Image>();
             rankThree.sprite = _obtainedRank;
+            CardFour.gameObject.SetActive(false);
         }
     }
 }
