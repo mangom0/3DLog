@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     public float magnetRange = 3f;
     public int gold = 0;
 
-    //��ų �ر� ����
+    //한글
     public bool _skillOneLearned = false;
     public bool _skillTwoLearned = false;
     public bool _skillThreeLearned = false;

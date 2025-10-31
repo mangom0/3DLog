@@ -14,7 +14,7 @@ public class MonsterBase : MonoBehaviour
     public Animator monsterAnimator;
     public Collider monsterHitRadius;
     Rigidbody monsterRigidbody;
-    protected Player player;
+    [SerializeField] protected Player player;
     protected float rotationfloat = 40f;
 
 
@@ -25,19 +25,12 @@ public class MonsterBase : MonoBehaviour
 
     private void Awake()
     {
+        player = GetComponent<Player>();
         player = FindObjectOfType<Player>();
         monsterHitRadius = GetComponent<Collider>();
         monsterGold = Random.Range(1, 10);
 
 
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Skill")
-        {
-            monsterStatus.hp -= 70;
-            Debug.Log("�浹 ����, ���� ü��" + monsterStatus.hp);
-        }
     }
 
 
@@ -87,7 +80,7 @@ public class MonsterBase : MonoBehaviour
     public virtual void MonsterDamageTaken(float _damage)
     {
         monsterStatus.hp -= _damage;
-        Debug.Log("���� ü��" + monsterStatus.hp);
+        Debug.Log("현재 체력" + monsterStatus.hp);
     }
 
     protected void MonsterDead()

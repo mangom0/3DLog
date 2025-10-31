@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lich : MonsterBase
@@ -7,14 +8,18 @@ public class Lich : MonsterBase
     float time = 0;
     float magicTime = 0;
     float delayTime = 1.3f;
-    float MagicDelayTime = 2.5f;
+    float MagicDelayTime = 2.3f;
 
-    [SerializeField] private float detectedRange = 10;
+    [SerializeField] private float detectedRange;
 
     [SerializeField] LayerMask layerDetect;
 
     Ray lichRay;
     RaycastHit[] rayHits;
+
+    Vector3 lichPosition;
+
+    bool isMagic;
 
 
     private void OnCollisionEnter(Collision collision)
@@ -24,15 +29,6 @@ public class Lich : MonsterBase
         {
             isAttacking = true;
             monsterAnimator.SetBool("IsAttack", true);
-            monsterAnimator.SetBool("Attack", true);
-
-            Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage(monsterStatus.damage);
-            }
-
-
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -40,18 +36,15 @@ public class Lich : MonsterBase
 
         if (collision.gameObject.tag == "Player")
         {
-            isAttacking = true;
+            //isAttacking = true;
             time += Time.deltaTime;
             if (time > delayTime)
             {
                 time = 0;
-                monsterAnimator.SetBool("Attack", true);
+                monsterAnimator.SetBool("IsAttack", true);
 
                 Player player = collision.gameObject.GetComponent<Player>();
-                if (player != null)
-                {
-                    player.TakeDamage(monsterStatus.damage);
-                }
+             
 
             }
         }
@@ -68,13 +61,13 @@ public class Lich : MonsterBase
 
     private void Awake()
     {
-
+      
     }
 
     private void Start()
     {
 
-        
+       
         monsterStatus.hp = 100;
         monsterStatus.moveSpeed = 3;
         monsterStatus.damage = 20;
@@ -85,18 +78,37 @@ public class Lich : MonsterBase
 
 
     }
-    public void LichMoveSpeedUp()
+    public void LichMagicStop()
     {
+
+        monsterAnimator.SetBool("IsMagic", false);
         transform.LookAt(targetPlayer.transform.position);
         monsterStatus.moveSpeed = 3;
+        isMagic = false;
         isAttacking = false;
+    }
+    public void LichAttackStop()
+    {
+
+        
+            if (isMagic == true)
+            {
+                return;
+            }
+            player.TakeDamage(monsterStatus.damage);
+            Debug.Log(player.currentHp);
+        
+
+        monsterStatus.moveSpeed = 3;
+    
 
     }
     private void RayShot()
     {
 
+        lichPosition = transform.position + transform.forward* 2.5f;
 
-        lichRay = new Ray(transform.position, transform.forward * detectedRange);
+        lichRay = new Ray(lichPosition, transform.forward * detectedRange);
         rayHits = Physics.RaycastAll(lichRay, detectedRange, layerDetect);
         if (rayHits != null)
         {
@@ -107,9 +119,10 @@ public class Lich : MonsterBase
                    
                     magicTime += Time.deltaTime;
                     monsterAnimator.SetBool("IsMagic", true);
+                    isMagic = true;
                     monsterStatus.moveSpeed = 0;
                     Debug.Log("플레이어 인식");
-                    if (magicTime > MagicDelayTime)
+                    if (magicTime >= MagicDelayTime)
                     {
                         magicTime = 0;
                         monsterAnimator.SetBool("IsMagic", false);

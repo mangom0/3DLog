@@ -23,7 +23,7 @@ public class Shield : MonoBehaviour, ISkill
     //시간 경과를 체크하기 위한 변수
     float _timeFlow = 0;
     //강화 단계
-    float _rank = 1;
+    public float _rank = 0;
     //실드 마법이 발동되었는지 체크해줄 bool형 변수
     bool _isActive = false;
     private void Awake()
@@ -34,9 +34,11 @@ public class Shield : MonoBehaviour, ISkill
 
     private void Update()
     {
-        Effect();
-        _timeFlow += Time.deltaTime;
-        RankUpCheck();
+        if(_rank >= 1)
+        {
+            Effect();
+            _timeFlow += Time.deltaTime;
+        }
     }
 
     public void Effect()
@@ -71,8 +73,6 @@ public class Shield : MonoBehaviour, ISkill
     }
     public void RankUpCheck()
     {
-        if(Input.GetKeyDown(KeyCode.Slash))
-        {
             _rank++;
             _isActive = false;
             _timeFlow = 0;
@@ -84,7 +84,8 @@ public class Shield : MonoBehaviour, ISkill
             {
                 _value += 8;
             }
-        }
+        
     }
+
 
 }
