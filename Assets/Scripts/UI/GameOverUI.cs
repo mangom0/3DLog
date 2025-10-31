@@ -4,37 +4,36 @@ using UnityEngine;
 
 public class GameOverUI : MonoBehaviour
 {
-    [Header("UI Panel")]
+    [SerializeField] private Player player;            // Player 참조
+    [SerializeField] private GameObject gameOverPanel; // GameOverPanel
+    [SerializeField] private TimeManager timeManager; // timeManager
 
-    // GameOver Panel (비활성 상태로 시작)
-    [SerializeField] private GameObject gameOverPanel;
+    private bool isGameOver = false;
 
-    void Start()
+    private void Start()
     {
         if (gameOverPanel != null)
-
-            // 시작 시 숨김
             gameOverPanel.SetActive(false);
     }
 
-    // 테스트용: 버튼 클릭으로 GameOver 화면 표시
-    public void ShowGameOver()
+    private void Update()
+    {
+        if (!isGameOver && player != null && player.currentHp <= 0)
+        {
+            isGameOver = true;
+            onGameOver();
+        }
+    }
+
+    private void onGameOver()
     {
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
 
-        // 게임 정지
-        Time.timeScale = 0f; 
+        if (TimeManager.Instance != null)
+            TimeManager.Instance.stopTimer();
+        
     }
 
-    // 테스트용: GameOver 화면 닫기
-    public void HideGameOver()
-    {
-        if (gameOverPanel != null)
-            gameOverPanel.SetActive(false);
-
-        // 게임 재개
-        Time.timeScale = 1f; 
-    }
 }
 
