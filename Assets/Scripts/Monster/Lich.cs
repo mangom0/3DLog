@@ -110,12 +110,12 @@ public class Lich : MonsterBase
             Debug.Log(player.currentHp);
 
             isAttacking = false;
-        }
+        
 
 
         monsterStatus.moveSpeed = 3;
 
-
+      
     }
     private void RayShot()
     {
