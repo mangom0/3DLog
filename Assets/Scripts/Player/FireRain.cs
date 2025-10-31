@@ -62,7 +62,6 @@ public class FireRain : MonoBehaviour, ISkill
         {
             Effect();
             _timeFlow += Time.deltaTime;
-            RankUpCheck();
         }
     }
 
@@ -105,12 +104,9 @@ public class FireRain : MonoBehaviour, ISkill
     }
     public void RankUpCheck()
     {
-        if (Input.GetKeyUp(KeyCode.Backspace))
-        {
             _rank++;
             _isActive = false;
             _fireRainEffect.SetActive(false);
-        }
         if (_rank == 2)
         {
             _cooldown -= _duration;

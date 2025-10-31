@@ -83,7 +83,6 @@ public class IceField : MonoBehaviour
         {
             Effect();
             _timeFlow += Time.deltaTime;
-            RankUpCheck();
         }
     }
 
@@ -115,12 +114,9 @@ public class IceField : MonoBehaviour
     }
     public void RankUpCheck()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
             _rank++;
             _isActive = false;
             _iceFieldEffect.SetActive(false);
-        }
         if(_rank == 2)
         {
             _iceFieldEffect = _rankTwoEffect;

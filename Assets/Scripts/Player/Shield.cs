@@ -38,7 +38,6 @@ public class Shield : MonoBehaviour, ISkill
         {
             Effect();
             _timeFlow += Time.deltaTime;
-            RankUpCheck();
         }
     }
 
@@ -74,8 +73,6 @@ public class Shield : MonoBehaviour, ISkill
     }
     public void RankUpCheck()
     {
-        if(Input.GetKeyDown(KeyCode.Slash))
-        {
             _rank++;
             _isActive = false;
             _timeFlow = 0;
@@ -87,7 +84,7 @@ public class Shield : MonoBehaviour, ISkill
             {
                 _value += 8;
             }
-        }
+        
     }
 
 

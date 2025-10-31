@@ -35,6 +35,10 @@ public class SkillRankInterface : MonoBehaviour
     //레벨 변화로 인한 카드 셔플이 이루어진 것인지 확인하기 위한 bool형 변수
     private bool isShuffled = false;
 
+    GameObject _First;
+    GameObject _Second;
+    GameObject _Third;
+
 
     private void Start()
     {
@@ -42,11 +46,19 @@ public class SkillRankInterface : MonoBehaviour
         level = player.level;
         //레벨업 전용 캔버스를 일단 비활성화
         _selectCanvas.gameObject.SetActive(false);
+        //자체적으로 쓸 게임 오브젝트 전용 위치에 배치
+        _First = Instantiate(CardOne);
+        _First.transform.position = FirstCard.transform.position;
+        _Second = Instantiate(CardTwo);
+        _Second.transform.position = SecondCard.transform.position;
+        _Third = Instantiate(CardThree);
+        _Third.transform.position = ThirdCard.transform.position;
     }
     // Update is called once per frame
     void Update()
     {
         PlayerLevelUp();
+        PlayerChoose();
     }
 
     //플레이어 레벨업 시의 함수
@@ -59,76 +71,21 @@ public class SkillRankInterface : MonoBehaviour
             _selectCanvas.gameObject.SetActive(true);
             //중복 체크를 제한하기 위해 일단 레벨부터 동일화
             level = player.level;
-            if (isShuffled == false)
-            {
-                //세 종류의 카드를 우선 뽑기
-                firstCard = Random.Range(0, 3);
-                secondCard = Random.Range(0, 3);
-                thirdCard = Random.Range(0, 3);
-                //첫 번째 카드에 해당 값에 맞는 스킬 이미지를 출력
-                switch (firstCard)
-                {
-                    case 0:
-                        FirstCard = Instantiate(CardOne);
-                        ShieldRankCheck();
-                        break;
-                    case 1:
-                        FirstCard = Instantiate(CardTwo);
-                        FireRainRankCheck();
-                        break;
-                    case 2:
-                        FirstCard = Instantiate(CardThree);
-                        IceFieldRankCheck();
-                        break;
-                    case 3:
-                        FirstCard = Instantiate(CardFour);
-                        TornadoRankCheck();
-                        break;
-                }
-                //두 번째 카드에도
-                switch (secondCard)
-                {
-                    case 0:
-                        SecondCard = Instantiate(CardOne);
-                        ShieldRankCheck();
-                        break;
-                    case 1:
-                        SecondCard = Instantiate(CardTwo);
-                        FireRainRankCheck();
-                        break;
-                    case 2:
-                        SecondCard = Instantiate(CardThree);
-                        IceFieldRankCheck();
-                        break;
-                    case 3:
-                        SecondCard = Instantiate(CardFour);
-                        TornadoRankCheck();
-                        break;
-                }
-                //세 번째 카드에도
-                switch (thirdCard)
-                {
-                    case 0:
-                        ThirdCard = Instantiate(CardOne);
-                        ShieldRankCheck();
-                        break;
-                    case 1:
-                        ThirdCard = Instantiate(CardTwo);
-                        FireRainRankCheck();
-                        break;
-                    case 2:
-                        ThirdCard = Instantiate(CardThree);
-                        IceFieldRankCheck();
-                        break;
-                    case 3:
-                        ThirdCard = Instantiate(CardFour);
-                        TornadoRankCheck();
-                        break;
-                }
-                isShuffled = true;
-            }
             
+                isShuffled = true;
+            
+        }
+    }
 
+    void PlayerChoose()
+    {
+        if(isPlayerSelected == true)
+        {
+            isShuffled = false;
+            ShieldRankCheck();
+            FireRainRankCheck();
+            IceFieldRankCheck();
+            TornadoRankCheck();
         }
     }
     //실드 카드 랭크 설정

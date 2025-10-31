@@ -29,7 +29,6 @@ public class WindBlade : MonoBehaviour, ISkill
     private void Update()
     {
         _wayPoint.transform.Rotate(Vector3.up, 90f *  Time.deltaTime);
-        RankUpCheck();
     }
 
     public void Effect()
@@ -39,8 +38,12 @@ public class WindBlade : MonoBehaviour, ISkill
 
     public void RankUpCheck()
     {
-        if (Input.GetKeyDown(KeyCode.Delete))
             _rank++;
+        if (_prev != _rank && _rank == 1)
+        {
+            _rankOneSpawn.gameObject.SetActive(true);
+            _prev++;
+        }
         if (_prev != _rank && _rank == 2)
         {
             Instantiate(_rankTwoStorm, _rankTwoSpawn.transform);
