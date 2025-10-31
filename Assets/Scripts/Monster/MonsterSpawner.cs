@@ -6,7 +6,7 @@ public class MonsterSpawner : MonoBehaviour
 {
 
     [SerializeField] private GameObject spawnMonster;
-    [SerializeField] private Transform transforms;
+    //[SerializeField] private Transform transforms;
     [SerializeField] private float spawnDelay;
 
     private WaitForSeconds delay;
@@ -25,8 +25,11 @@ public class MonsterSpawner : MonoBehaviour
         {
 
           yield return delay;
+          System.Random rnd = new System.Random();
+            Vector3 spawn = new Vector3 (rnd.Next(-74,74), 0, 74);
+            Instantiate(spawnMonster, spawn, Quaternion.identity);
 
-          GameObject newMonster = Instantiate(spawnMonster,transforms);
+
 
         }
 
