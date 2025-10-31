@@ -53,6 +53,8 @@ public class Golem : MonsterBase
         monsterStatus.damage = 15;
         targetPlayer = GameObject.FindWithTag("Player");
         targetPlayertransform = targetPlayer.transform;
+        player = targetPlayer.GetComponent<Player>();
+
     }
     public void GolemAttack()
     {

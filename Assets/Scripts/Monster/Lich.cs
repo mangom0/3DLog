@@ -10,8 +10,9 @@ public class Lich : MonsterBase
     float delayTime = 1.3f;
     float MagicDelayTime = 2.3f;
 
+    [SerializeField] LichFrostBolt lichfrost;
     [SerializeField] private float detectedRange;
-
+    [SerializeField] private GameObject lichfrostbolts;
     [SerializeField] LayerMask layerDetect;
 
     Ray lichRay;
@@ -72,10 +73,20 @@ public class Lich : MonsterBase
         monsterStatus.moveSpeed = 3;
         monsterStatus.damage = 20;
         targetPlayer = GameObject.FindWithTag("Player");
+        player = targetPlayer.GetComponent<Player>();
+        lichfrost = GetComponent<LichFrostBolt>();
+
+        
         targetPlayertransform = targetPlayer.transform;
 
+        
 
 
+    }
+
+    public void LichMagicAttack()
+    {
+        lichfrost.FrostBolt();
 
     }
     public void LichMagicStop()
@@ -97,10 +108,13 @@ public class Lich : MonsterBase
             }
             player.TakeDamage(monsterStatus.damage);
             Debug.Log(player.currentHp);
-        
+
+            isAttacking = false;
+        }
+
 
         monsterStatus.moveSpeed = 3;
-    
+
 
     }
     private void RayShot()
@@ -121,7 +135,7 @@ public class Lich : MonsterBase
                     monsterAnimator.SetBool("IsMagic", true);
                     isMagic = true;
                     monsterStatus.moveSpeed = 0;
-                    Debug.Log("ÇÃ·¹ÀÌ¾î ÀÎ½Ä");
+                    Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Î½ï¿½");
                     if (magicTime >= MagicDelayTime)
                     {
                         magicTime = 0;
