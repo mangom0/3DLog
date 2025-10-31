@@ -255,7 +255,7 @@ MonoBehaviour:
   m_text: "\uCC44\uC885\uC548: \uB9F5\n\uC784\uC131\uD604: \uD50C\uB808\uC774\uC5B4
     / \uC2A4\uD0AC \uAD6C\uD604\n\uC8FC\uBBFC\uADDC: \uD50C\uB808\uC774\uC5B4 / \uC2A4\uD0AC
     / \uC778\uAC8C\uC784ui\n\uD568\uC2B9\uBE48: \uBAAC\uC2A4\uD130 \uAD6C\uD604\n\uAE40\uAC74:
-    \uC804\uCCB4 UI/\uC778\uAC8C\uC784 UI/\uB85C\uBE44 UI \uAD6C\uD604"
+    \uC804\uCCB4 UI / \uC778\uAC8C\uC784 U I / \uB85C\uBE44 UI \uAD6C\uD604"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b31ea5d25a87b8f4cbb6f4e23acc6e03, type: 2}
   m_sharedMaterial: {fileID: 7360534090372372093, guid: b31ea5d25a87b8f4cbb6f4e23acc6e03, type: 2}
