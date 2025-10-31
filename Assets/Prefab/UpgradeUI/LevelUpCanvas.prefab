@@ -247,11 +247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223291035362303599, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 223291035362303599, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 223291035362303599, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_LocalPosition.x
@@ -283,7 +283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 223291035362303599, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -960
       objectReference: {fileID: 0}
     - target: {fileID: 223291035362303599, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -301,13 +301,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2168400455726145033, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100215962462823111, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4100215962462823111, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 8206597223387338076, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
       propertyPath: m_Name
       value: ShieldCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 8206597223387338076, guid: 83807af7e60a08a4eaabbe2d38917601, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -331,9 +339,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: IceFieldCard
       objectReference: {fileID: 0}
-    - target: {fileID: 72468801161592965, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 5249736180590685885, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5249736180590685885, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_Pivot.x
@@ -361,11 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -397,7 +409,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 840
+      value: 320
       objectReference: {fileID: 0}
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -414,6 +426,10 @@ PrefabInstance:
     - target: {fileID: 5800739016878275374, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8112327683406495432, guid: 2d73d454fbfb1fa43ae40861e4629cd5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -437,10 +453,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireRainCard
       objectReference: {fileID: 0}
-    - target: {fileID: 1001877231554069558, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -467,11 +479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -320
       objectReference: {fileID: 0}
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -520,6 +532,18 @@ PrefabInstance:
     - target: {fileID: 3674380669679772649, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078467697734438431, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078467697734438431, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574991798908957728, guid: e8ae23a750099f643aa63f08d9a7d73e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -539,13 +563,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2774333251087606886}
     m_Modifications:
+    - target: {fileID: 1833301447039039964, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 1833301447039039964, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414255435795519411, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 3641142092515218003, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_Name
       value: TornadoCard
-      objectReference: {fileID: 0}
-    - target: {fileID: 3641142092515218003, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_Pivot.x
@@ -573,11 +605,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 800
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -609,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -840
+      value: 960
       objectReference: {fileID: 0}
     - target: {fileID: 5948907466765793391, guid: 47f6b4c00347613479e3bfaea2f82fdf, type: 3}
       propertyPath: m_AnchoredPosition.y
