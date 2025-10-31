@@ -68,7 +68,6 @@ public class Player : MonoBehaviour
             if (Input.GetMouseButton(0))
             {
                 _animator.SetBool("isAttack", true);
-                fireBall.Shoot();
             }
             if (Input.GetMouseButtonUp(0))
             {
@@ -133,6 +132,7 @@ public class Player : MonoBehaviour
         if (currentHp <= 0f)
         {
             Die();
+            currentExp = 0f;
         }
     }
 
@@ -220,5 +220,9 @@ public class Player : MonoBehaviour
         }
     }
 
+    void Shoot()
+    {
+        fireBall.Shoot();
+    }
 
 }
