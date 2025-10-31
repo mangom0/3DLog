@@ -3497,6 +3497,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tornado
       objectReference: {fileID: 0}
+    - target: {fileID: 6171010421550500667, guid: 42be4aa189ac9dc46a99efd8ce2dc14b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718944566968846377, guid: 42be4aa189ac9dc46a99efd8ce2dc14b, type: 3}
+      propertyPath: _layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718944566968846377, guid: 42be4aa189ac9dc46a99efd8ce2dc14b, type: 3}
+      propertyPath: _player
+      value: 
+      objectReference: {fileID: 896714676}
     - target: {fileID: 6827332720110047681, guid: 42be4aa189ac9dc46a99efd8ce2dc14b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3538,7 +3550,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 3696649222772866256, guid: 42be4aa189ac9dc46a99efd8ce2dc14b, type: 3}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

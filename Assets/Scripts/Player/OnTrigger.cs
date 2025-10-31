@@ -15,7 +15,7 @@ public class OnTrigger : MonoBehaviour
     [SerializeField] Player _player;
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 8)
         {
             MonsterBase enemy = other.gameObject.GetComponent<MonsterBase>();
             
@@ -26,7 +26,7 @@ public class OnTrigger : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         cooldown += Time.deltaTime;
-        if (other.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 8)
         {
             if(cooldown > _period)
             {
