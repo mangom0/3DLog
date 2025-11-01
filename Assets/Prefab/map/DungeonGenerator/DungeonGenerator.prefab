@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8912056770779822175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8844738557387852296}
+  - component: {fileID: 5807145735871679178}
+  m_Layer: 0
+  m_Name: DungeonGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8844738557387852296
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912056770779822175}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 300}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5807145735871679178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8912056770779822175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -766443767, guid: f560063dff201ed49a415a8d58f2aae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generateOnStart: 1
+  randomizeSeed: 1
+  seed: 100
+  sectionContainer: {fileID: 0}
+  maxLevelSize: 50
+  maxAllowedOrder: 5
+  sectionPrefabs:
+  - {fileID: 6097536851214569045, guid: 8c814c4ac519a604aa15c157e44e1706, type: 3}
+  - {fileID: 11835433341965080, guid: f20d47e6565390a45b54aa259fee41e5, type: 3}
+  - {fileID: 5411319327775482857, guid: ba7c2e787a277974b90ef7070ddd29ed, type: 3}
+  - {fileID: 5512357670927176917, guid: b2572244d56000146864d260a9296a6e, type: 3}
+  - {fileID: 6097536851214569045, guid: 599f7ec6d66dbcf4dbee6967043addb9, type: 3}
+  - {fileID: 9014937463811898191, guid: 931da24bd1bcb4f4c8665730e567ca55, type: 3}
+  - {fileID: 1431594780588024795, guid: 5825686fb02b881498790b1f74476de1, type: 3}
+  - {fileID: 6776779703691524478, guid: 491dec61f38bb9c49a99808129d5ca7e, type: 3}
+  - {fileID: 1492136533057598152, guid: df25e045735b6764591f48d68c4c60ee, type: 3}
+  endPrefabs:
+  - {fileID: 6867956003714455516, guid: 61f35dd16f9c16b4ca220dffc6316f50, type: 3}
+  initialSectionTags:
+  - seed
+  specialRules:
+  - Tag: treasure
+    MinAmount: 3
+    MaxAmount: 3
+  - Tag: spawn
+    MinAmount: 3
+    MaxAmount: 3
