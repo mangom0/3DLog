@@ -8,7 +8,7 @@ public class MonsterSpawnerRight : MonoBehaviour
     [SerializeField] private GameObject[] spawnMonster;
     //[SerializeField] private Transform transforms;
     [SerializeField] private float spawnDelay;
-
+    TimeManager timeManager;
     private WaitForSeconds delay;
 
     private void Start()
@@ -21,7 +21,9 @@ public class MonsterSpawnerRight : MonoBehaviour
 
     private IEnumerator Spawner()
     {
-        
+        if (timeManager.isRunning == true)
+        {
+
             while (true)
             {
 
@@ -52,10 +54,11 @@ public class MonsterSpawnerRight : MonoBehaviour
                 }
 
             }
-
-
-
         }
+        else
+        {
+            timeManager.resetTimer();
+        }
+    }
 
-    
 }

@@ -8,7 +8,7 @@ public class MonsterSpawnerTop : MonoBehaviour
     [SerializeField] private GameObject[] spawnMonster;
     //[SerializeField] private Transform transforms;
     [SerializeField] private float spawnDelay;
-
+    TimeManager timeManager;
     private WaitForSeconds delay;
 
     private void Start()
@@ -21,8 +21,9 @@ public class MonsterSpawnerTop : MonoBehaviour
 
     private IEnumerator Spawner()
     {
-        
-       
+        if (timeManager.isRunning == true)
+        {
+
             while (true)
             {
 
@@ -51,14 +52,11 @@ public class MonsterSpawnerTop : MonoBehaviour
                     delay = new WaitForSeconds(spawnDelay = 2);
                     Instantiate(spawnMonster[Random.Range(0, 3)], spawn, Quaternion.identity);
                 }
-
-
-
             }
-
-
-
-        
-
+        }
+        else
+        {
+            timeManager.resetTimer();
+        }
     }
 }
