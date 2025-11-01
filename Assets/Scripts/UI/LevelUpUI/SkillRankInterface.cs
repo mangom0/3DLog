@@ -72,6 +72,7 @@ public class SkillRankInterface : MonoBehaviour
                 return;
             isPlayerSelected = false;
             _selectCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0f;
             //중복 체크를 제한하기 위해 일단 레벨부터 동일화
             level = player.level;
             

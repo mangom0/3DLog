@@ -28,5 +28,6 @@ public class SkillCard : MonoBehaviour
         _selector._skillInterface.RankUp(skill);
         _selector.isPlayerSelected = true;
         _selector._selectCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
