@@ -157,7 +157,7 @@ public class ShopManager : MonoBehaviour
         damageButtonText.text = "공격력 증가 +5\n(" + GetDamageCost() + "골드)";
         speedButtonText.text = "속도 증가 +1\n(" + GetSpeedCost() + "골드)";
         healthButtonText.text = "최대 체력 증가 +10\n(" + GetHealthCost() + "골드)";
-        regenButtonText.text = "체력 재생률 +1%\n(" + GetRegenCost() + "골드)";
+        regenButtonText.text = "체력 재생률 +0.1%\n(" + GetRegenCost() + "골드)";
         expButtonText.text = "EXP 배율 +5%\n(" + GetExpCost() + "골드)";
         magnetButtonText.text = "자석 범위 증가 +1\n(" + GetMagnetCost() + "골드)";
     }
@@ -227,7 +227,7 @@ public class ShopManager : MonoBehaviour
 
         if (player.SpendGold(cost))
         {
-            regenHp += 1f; // 초당 체력 재생량 +1
+            regenHp += 0.1f; // 초당 체력 재생량 +0.1
             regenLevel++;
             UpdateAllUI();
         }
