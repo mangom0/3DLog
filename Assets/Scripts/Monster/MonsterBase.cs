@@ -25,18 +25,16 @@ public class MonsterBase : MonoBehaviour
 
     private void Awake()
     {
-        //player = GameObject.FindObjectOfType<Player>();
 
         monsterHitRadius = GetComponent<Collider>();
         monsterGold = Random.Range(1, 10);
-
 
     }
 
 
     
 
-    private void OnCollisionExit(Collision collision)
+    private void OnCollisionExit(Collision collision) //몬스터가 플레이어랑 떨어지면 걷기 애니메이션을 적용시킬라고 쓴거임
     {
         monsterAnimator.SetBool("Attack", false);
 
@@ -51,7 +49,7 @@ public class MonsterBase : MonoBehaviour
 
     }
 
-    protected void MonsterMoving()
+    protected void MonsterMoving() //몬스터가 플레이어를 바라보면서 계속 가고 있음
     {
         if (targetPlayer.transform.position != null && isAlive == true)
         {
@@ -77,7 +75,7 @@ public class MonsterBase : MonoBehaviour
 
 
 
-    public virtual void MonsterDamageTaken(float _damage)
+    public virtual void MonsterDamageTaken(float _damage) 
     {
         monsterStatus.hp -= _damage;
         Debug.Log("현재 체력" + monsterStatus.hp);
@@ -108,11 +106,11 @@ public class MonsterBase : MonoBehaviour
             monsterStatus.hp = 0;
             monsterAnimator.SetBool("IsRun", false);
             monsterAnimator.SetBool("IsDead", true);
-
             monsterStatus.moveSpeed = 0;
+            //몬스터 사망 시 콜라이더 해제시켜 불필요한 충돌 삭제
             monsterHitRadius.enabled = false;
 
-
+            //몬스터 사망시 3초 후 삭제
             Destroy(gameObject, 3);
         }
     }

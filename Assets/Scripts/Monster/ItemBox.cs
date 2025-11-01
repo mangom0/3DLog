@@ -37,7 +37,9 @@ public class ItemBox : MonoBehaviour
           Destroy(gameObject, 2.5f);
             if (isBoxOpen != true)
             {
+                //아이템 박스 안에 있는 오브젝트를 랜덤 수로 받아와서
                 Instantiate(boxItem[boxIndex], gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                //열릴 때 그 오브젝트를 소환? 생성?
                 isBoxOpen = true;
             }
 

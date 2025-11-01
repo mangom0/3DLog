@@ -26,6 +26,7 @@ public class BoxSpawner : MonoBehaviour
           
                 System.Random rnd = new System.Random();
                 GameObject newObj = Instantiate(_SpawnPrefab, transform);
+            //박스 랜덤 생성
                 newObj.transform.position = new Vector3(rnd.Next(-73, 74), 0, rnd.Next(-73, 74));
             
 
