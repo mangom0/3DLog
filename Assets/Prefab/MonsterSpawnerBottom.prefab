@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3686592411790544766}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,5 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80575d1a49846314b9d053bdb00df6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnMonster: {fileID: 5928037822912005714, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
+  spawnMonster:
+  - {fileID: 5928037822912005714, guid: 317be2c741209ef4b8dd7b8a8becf50e, type: 3}
+  - {fileID: 2647261053797873045, guid: 7061508dc07eb2a4ea4a92a04a1d025e, type: 3}
+  - {fileID: 1938942498238178899, guid: 19f5a7670f9c5e34a88c49fb5055eeba, type: 3}
   spawnDelay: 3
