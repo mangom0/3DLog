@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d872f2bdf390a0d44b01e7d06b218987
+guid: cf720bf5e49333c4587e1444904766e2
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -213,6 +213,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.30769232
+        functionName: LichMagicAttack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.8300395
         functionName: LichMagicStop
         data: 

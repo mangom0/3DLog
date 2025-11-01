@@ -59,25 +59,30 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        MoveInput();
-        LookInput();
+        
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        if (currentHp > 0f) 
         {
-            _animator.SetBool("isMoving", true);
-        }
-        else
-            _animator.SetBool("isMoving", false);
+            MoveInput();
+            LookInput();
+            if (Input.GetMouseButton(0))
+            {
+                _animator.SetBool("isAttack", true);
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                _animator.SetBool("isAttack", false);
+            }
 
-        if (Input.GetMouseButton(0))
-        {
-            _animator.SetBool("isAttack", true);
-            fireBall.Shoot();
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+            {
+                _animator.SetBool("isMoving", true);
+            }
+            else
+                _animator.SetBool("isMoving", false);
+
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            _animator.SetBool("isAttack", false);
-        }
+        Die();
     }
 
     //�Է�ó��
@@ -127,6 +132,7 @@ public class Player : MonoBehaviour
         if (currentHp <= 0f)
         {
             Die();
+            currentExp = 0f;
         }
     }
 
@@ -185,8 +191,10 @@ public class Player : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Player Dead");
-        // TODO: ���ӿ��� ó��, ������ ��
+        if(currentHp <= 0f)
+        {
+        _animator.SetBool("isDead", true);
+        }
     }
 
     public void AddGold(int amount)
@@ -211,4 +219,10 @@ public class Player : MonoBehaviour
             return false;
         }
     }
+
+    void Shoot()
+    {
+        fireBall.Shoot();
+    }
+
 }

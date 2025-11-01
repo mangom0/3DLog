@@ -8,24 +8,24 @@ public class Shield : MonoBehaviour, ISkill
     //스킬의 판정 범위를 지정해줄 Collider
     [SerializeField] SphereCollider _collider;
     //해당 스킬 사용 시의 설정값
-    [SerializeField] float _value = 5f;
+    [SerializeField] public float _value = 5f;
     //해당 효과가 지속될 시간
-    [SerializeField] float _duration = 5f;
+    [SerializeField] public float _duration = 5f;
     //쿨타임
-    [SerializeField] float _cooldown = 5f;
+    [SerializeField] public float _cooldown = 5f;
     //습득 시 실드로서 기능할 오브젝트
     [SerializeField] public ShieldActivation _shieldEffect;
     [SerializeField] Player player;
 
     //내부적으로 사용할, 현재 시점의 쿨타임 및 지속시간
-    float curDuration;
-    float curCooldown;
+    public float curDuration;
+    public float curCooldown;
     //시간 경과를 체크하기 위한 변수
-    float _timeFlow = 0;
+    public float _timeFlow = 0;
     //강화 단계
-    float _rank = 1;
+    public float _rank = 0;
     //실드 마법이 발동되었는지 체크해줄 bool형 변수
-    bool _isActive = false;
+    public bool _isActive = false;
     private void Awake()
     {
         curDuration = _duration;
@@ -34,9 +34,11 @@ public class Shield : MonoBehaviour, ISkill
 
     private void Update()
     {
-        Effect();
-        _timeFlow += Time.deltaTime;
-        RankUpCheck();
+        if(_rank >= 1)
+        {
+            Effect();
+            _timeFlow += Time.deltaTime;
+        }
     }
 
     public void Effect()
@@ -71,10 +73,9 @@ public class Shield : MonoBehaviour, ISkill
     }
     public void RankUpCheck()
     {
-        if(Input.GetKeyDown(KeyCode.Slash))
-        {
             _rank++;
             _isActive = false;
+        _shieldEffect.gameObject.SetActive(false);
             _timeFlow = 0;
             if(_rank == 2)
             {
@@ -84,7 +85,8 @@ public class Shield : MonoBehaviour, ISkill
             {
                 _value += 8;
             }
-        }
+        
     }
+
 
 }
